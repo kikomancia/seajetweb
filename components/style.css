@@ -1,0 +1,211 @@
+/* ------------------------------
+   FONTS (example)
+------------------------------ */
+@font-face {
+    font-family: "MyFont";
+    src: url("fonts/GeneralSans-Semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "MyFont1";
+    src: url("fonts/GOTHIC.TTF") format("truetype");
+}
+
+body {
+    font-family: "MyFont", sans-serif;
+    overflow-x: hidden;
+}
+
+/* ------------------------------
+   NAVBAR
+------------------------------ */
+
+.custom-navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* background: transparent !important; */
+    padding: 20px 40px;
+}
+
+.navLogo {
+    width: 260px;
+    height: auto;
+}
+
+.nav-link {
+    color: #eeeeee !important;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 35px;
+    letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+    color: #e0c219 !important;
+}
+
+/* Mobile Nav */
+@media (max-width: 991px) {
+    .nav-link {
+        margin-left: 0;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 20px;
+    }
+}
+
+/* ------------------------------
+   HERO SECTION
+------------------------------ */
+
+/* HERO BACKGROUND */
+.hero-section {
+    background-image: url("images/bg_image_01.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    /* padding-top: 150px;
+    padding-bottom: 80px; */
+
+    padding: 150px;
+}
+
+.s-logo {
+    background-image: url("images/Asset\ 22@3x.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* TEXT */
+.hero-text h1 {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+/* IMAGE ON RIGHT */
+.hero-image {
+    width: 300%;
+    max-width: 2000px;
+    padding-left: 0 !important;
+}
+
+/* NAVBAR */
+.custom-navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(161, 161, 161, 0.418);
+    padding: 20px 40px;
+    z-index: 1000;
+
+}
+
+.navLogo {
+    width: 250px;
+    height: auto;
+}
+
+.txtConts-1 {
+    font-size: 35px !important;
+    font-family: "MyFont1";
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 991px) {
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    .hero-image {
+        max-width: 380px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding-top: 120px;
+        text-align: center;
+    }
+
+    .navLogo {
+        width: 160px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+}
+
+
+/* ------------------------------
+   RESPONSIVE FIXES
+------------------------------ */
+
+@media (max-width: 992px) {
+    .hero-text h1 {
+        font-size: 45px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    .navLogo {
+        width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-section {
+        padding-top: 120px;
+        text-align: center;
+    }
+
+    .navLogo {
+        width: 160px;
+    }
+}
+
+/* ------------------------------
+   LOADING SCREEN
+------------------------------ */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.678);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+#page-content {
+    display: none;
+}
+
+/* orig-1 */
