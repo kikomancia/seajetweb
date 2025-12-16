@@ -19,3 +19,16 @@ window.addEventListener("load", function () {
         content.style.display = "block";
     }, 500); // match transition time
 });
+
+// scroll event to add class to navbar
+ const navbar = document.querySelector('.custom-navbar');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    
