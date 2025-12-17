@@ -21,14 +21,40 @@ window.addEventListener("load", function () {
 });
 
 // scroll event to add class to navbar
- const navbar = document.querySelector('.custom-navbar');
+const navbar = document.querySelector('.custom-navbar');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const animation = entry.target.getAttribute("data-animate");
+
+                entry.target.classList.add(
+                    "animate__animated",
+                    animation
+                );
+
+                entry.target.style.opacity = 1;
+                observer.unobserve(entry.target); // animate once
+            }
+        });
+    }, {
+        threshold: 0.2
     });
 
-    
+    animatedElements.forEach(el => observer.observe(el));
+
+});
