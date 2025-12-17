@@ -35,8 +35,9 @@ body {
 ------------------------------ */
 
 .imgSlogo {
-  height: 750px;
-  margin-left: -400px !important;
+  height: 900px;
+  margin-left: -500px !important;
+
 }
 
 .custom-navbar {
@@ -45,18 +46,20 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 90px;
   z-index: 1050;
-  background-color: rgba(161, 161, 161, 0.603);
+    background-color: rgba(0, 0, 0, 0.63);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(8px);
   padding: 12px 40px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* DARKEN ON SCROLL */
-.custom-navbar.scrolled {
+/* .custom-navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.63);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
-}
+} */
 
 /* Logo */
 .navLogo {
@@ -98,8 +101,8 @@ body {
   background-image: url("images/bg_image_01.png");
   background-size: cover;
   background-position: center;
- min-height: auto;
-  padding-top: 160px;
+  min-height: auto;
+  padding: 160px 0px 85px 0px;
   /* must be >= navbar height */
   overflow-x: hidden !important;
 }
@@ -147,6 +150,7 @@ body {
     font-size: 40px;
   }
 
+
   .hero-text p {
     font-size: 18px;
   }
@@ -154,6 +158,18 @@ body {
   .hero-image {
     max-width: 380px;
     margin-top: 40px;
+  }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+
+  .imgCoreserv {
+    display: none;
   }
 }
 
@@ -170,6 +186,18 @@ body {
   .hero-text h1 {
     font-size: 32px;
   }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+
+  .imgCoreserv {
+    display: none;
+  }
 }
 
 /* ------------------------------
@@ -181,12 +209,25 @@ body {
     font-size: 45px;
   }
 
+
   .hero-text p {
     font-size: 18px;
   }
 
   .navLogo {
     width: 200px;
+  }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+
+  .imgCoreserv {
+    display: none;
   }
 }
 
@@ -202,6 +243,18 @@ body {
   .navLogo {
     width: 160px;
   }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+
+  .imgCoreserv {
+    display: none;
+  }
 }
 
 /* ------------------------------
@@ -213,7 +266,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.678);
+  background: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -251,8 +304,8 @@ body {
 .divServ {
   background-size: cover;
   background-position: center;
- min-height: auto;
-
+  min-height: auto;
+  padding: 100px 0px 100px 0px;
   overflow-x: hidden !important;
 }
 
@@ -289,8 +342,9 @@ body {
   background-size: cover;
   background-position: center;
   background-color: #fdf265;
- min-height: auto;
+  min-height: auto;
   overflow-x: hidden !important;
+  padding: 100px 0px 100px 0px;
 }
 
 .regions {
@@ -347,16 +401,39 @@ body {
   background-size: cover;
   background-position: center;
   /* background-color: #FDF265; */
- min-height: auto;
+  min-height: auto;
   overflow-x: hidden !important;
+  padding: 100px 0px 100px 0px;
 }
 
-.divCardAff{
-    border: 2px solid rgb(214, 214, 214);
-    border-radius: 20px;
-    padding: 10px;
-    padding-top: 10px;
-    margin: 2px;
-    height: 390px;
-    /* background-color: #272727; */
+.divCardAff {
+  border: 2px solid rgb(214, 214, 214);
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 10px;
+  margin: 2px;
+  height: 390px;
+  /* background-color: #272727; */
+}
+
+/* footer design */
+.footerBody {
+  background-color: #474747;
+  height: auto;
+  color: white;
+  font-size: 14.5px !important;
+  font-family: "MyFont1";
+  /* margin-top: 9px; */
+  padding: 40px 0px 40px 0px;
+}
+
+.footerBody a{
+  text-decoration: none;
+  color: #ffffff;
+  padding: 7px;
+}
+
+.footerBody a:hover{
+  color: #6b94f4;
+
 }
