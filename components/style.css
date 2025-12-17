@@ -36,7 +36,8 @@ body {
 
 .imgSlogo {
   height: 900px;
-  margin-left: -700px !important;
+  margin-left: -650px !important;
+
 }
 
 .custom-navbar {
@@ -98,7 +99,7 @@ body {
   background-image: url("images/bg_image_01.png");
   background-size: cover;
   background-position: center;
- min-height: auto;
+  min-height: auto;
   padding: 160px 0px 85px 0px;
   /* must be >= navbar height */
   overflow-x: hidden !important;
@@ -147,6 +148,7 @@ body {
     font-size: 40px;
   }
 
+
   .hero-text p {
     font-size: 18px;
   }
@@ -154,6 +156,18 @@ body {
   .hero-image {
     max-width: 380px;
     margin-top: 40px;
+  }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+
+  .imgCoreserv{
+    display: none;
   }
 }
 
@@ -170,6 +184,17 @@ body {
   .hero-text h1 {
     font-size: 32px;
   }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+  .imgCoreserv{
+    display: none;
+  }
 }
 
 /* ------------------------------
@@ -181,12 +206,24 @@ body {
     font-size: 45px;
   }
 
+
   .hero-text p {
     font-size: 18px;
   }
 
   .navLogo {
     width: 200px;
+  }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+  .imgCoreserv{
+    display: none;
   }
 }
 
@@ -201,6 +238,17 @@ body {
 
   .navLogo {
     width: 160px;
+  }
+
+  .divCardAff {
+    height: auto !important;
+  }
+
+  .imgSlogo {
+    display: none;
+  }
+  .imgCoreserv{
+    display: none;
   }
 }
 
@@ -289,7 +337,7 @@ body {
   background-size: cover;
   background-position: center;
   background-color: #fdf265;
- min-height: auto;
+  min-height: auto;
   overflow-x: hidden !important;
   padding: 100px 0px 100px 0px;
 }
@@ -348,17 +396,17 @@ body {
   background-size: cover;
   background-position: center;
   /* background-color: #FDF265; */
- min-height: auto;
+  min-height: auto;
   overflow-x: hidden !important;
   padding: 100px 0px 100px 0px;
 }
 
-.divCardAff{
-    border: 2px solid rgb(214, 214, 214);
-    border-radius: 20px;
-    padding: 10px;
-    padding-top: 10px;
-    margin: 2px;
-    /* height: 390px; */
-    /* background-color: #272727; */
+.divCardAff {
+  border: 2px solid rgb(214, 214, 214);
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 10px;
+  margin: 2px;
+  height: 390px;
+  /* background-color: #272727; */
 }
