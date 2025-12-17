@@ -35,8 +35,8 @@ body {
 ------------------------------ */
 
 .imgSlogo {
-  height: 750px;
-  margin-left: -400px !important;
+  height: 900px;
+  margin-left: -700px !important;
 }
 
 .custom-navbar {
@@ -99,7 +99,7 @@ body {
   background-size: cover;
   background-position: center;
  min-height: auto;
-  padding-top: 160px;
+  padding: 160px 0px 85px 0px;
   /* must be >= navbar height */
   overflow-x: hidden !important;
 }
@@ -251,8 +251,8 @@ body {
 .divServ {
   background-size: cover;
   background-position: center;
- min-height: auto;
-
+  min-height: auto;
+  padding: 100px 0px 100px 0px;
   overflow-x: hidden !important;
 }
 
@@ -291,6 +291,7 @@ body {
   background-color: #fdf265;
  min-height: auto;
   overflow-x: hidden !important;
+  padding: 100px 0px 100px 0px;
 }
 
 .regions {
@@ -349,6 +350,7 @@ body {
   /* background-color: #FDF265; */
  min-height: auto;
   overflow-x: hidden !important;
+  padding: 100px 0px 100px 0px;
 }
 
 .divCardAff{
@@ -357,6 +359,6 @@ body {
     padding: 10px;
     padding-top: 10px;
     margin: 2px;
-    height: 390px;
+    /* height: 390px; */
     /* background-color: #272727; */
 }
