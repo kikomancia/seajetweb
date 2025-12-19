@@ -48,7 +48,7 @@ body {
   width: 100%;
   height: 90px;
   z-index: 1050;
-  background-color: rgba(54, 54, 54, 0.63);
+  background-color: rgb(255, 243, 95);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(8px);
   padding: 12px 40px;
@@ -56,10 +56,10 @@ body {
 }
 
 /* DARKEN ON SCROLL */
-.custom-navbar.scrolled {
+/* .custom-navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.63);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
-}
+} */
 
 /* Logo */
 .navLogo {
@@ -69,14 +69,14 @@ body {
 
 /* Nav links */
 .nav-link {
-  color: #eeeeee !important;
+  color: #2f2f2f !important;
   font-weight: 700;
   font-size: 22px;
   margin-left: 30px;
 }
 
 .nav-link:hover {
-  color: #e0c219 !important;
+  color: rgb(1, 155, 225) !important;
    text-shadow: 0 3px 12px rgba(255, 255, 255, 0.509);
 }
 
