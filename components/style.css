@@ -77,7 +77,7 @@ body {
 
 .nav-link:hover {
   color: rgb(1, 155, 225) !important;
-   text-shadow: 0 3px 12px rgba(255, 255, 255, 0.509);
+  text-shadow: 0 3px 12px rgba(255, 255, 255, 0.509);
 }
 
 /* Mobile */
@@ -91,7 +91,7 @@ body {
   .navLogo {
     width: 160px;
     width: 120px !important;
-  height: 50px !important;
+    height: 50px !important;
   }
 
   .navbar-collapse {
@@ -438,13 +438,74 @@ body {
   padding: 40px 0px 40px 0px;
 }
 
-.footerBody a{
+.footerBody a {
   text-decoration: none;
   color: #ffffff;
   padding: 7px;
 }
 
-.footerBody a:hover{
+.footerBody a:hover {
   color: #6b94f4;
 
+}
+
+/* EXCELENCE */
+/* .divExcelence {
+  background-image: url("images/Asset11@3x.png");
+  background-size: cover;
+  background-position: top;
+  min-height: auto;
+  overflow-x: hidden !important;
+  padding: 100px 0px 100px 0px;
+} */
+/* 
+.divExcelence {
+  background-image: url("images/Asset11@3x.png");
+  background-size: cover;
+  background-position: center 0px;
+  min-height: 400px;
+  padding: 100px 0;
+  overflow-x: hidden;
+} */
+
+
+.divExcelence {
+  background-image: url("images/Asset11@3x.png");
+  background-size: cover;
+  background-position: center 0px;
+  min-height: 400px;
+  padding: 100px 0;
+  overflow-x: hidden;
+  background-attachment: fixed;
+}
+
+
+/* EXCELENCE */
+.divExcelence h1 {
+  color: #ffffff;
+  Text-shadow: 0 3px 12px rgba(0, 0, 0, 0.509);
+  font-size: 35px;
+  font-family: 'GOTHICB';
+  font-weight: 600 !important;
+}
+
+.boxCard{
+  padding-top: 65px;
+  width: auto;
+  height: 290px;
+  border: 7px solid white;
+  border-radius: 60px 0px 60px 0px;
+  background-color: #fff25fc2;
+  color: rgb(255, 255, 255);
+  Text-shadow: 0 3px 12px rgb(0, 0, 0);
+}
+
+.boxCard h1{
+  font-size: 80px;
+}
+.boxCard p{
+  font-size: 18px;
+  font-weight: 400;
+   Text-shadow: 0 3px 12px rgba(0, 0, 0, 0);
+   color: #3e3e3e;
 }

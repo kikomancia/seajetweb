@@ -58,3 +58,55 @@ document.addEventListener("DOMContentLoaded", function () {
     animatedElements.forEach(el => observer.observe(el));
 
 });
+
+
+// scroll effect sa image
+// window.addEventListener("scroll", () => {
+//   const excelence = document.querySelector(".divExcelence");
+//   const scrollPos = window.scrollY;
+//   excelence.style.backgroundPosition = `center ${scrollPos * .5}px`;
+// });
+
+
+// COUNTING EFFECT
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute("data-target");
+        const suffix = counter.getAttribute("data-suffix") || "";
+        const duration = 1500; // total animation time (ms)
+        const startTime = performance.now();
+
+        const update = (currentTime) => {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const value = Math.floor(progress * target);
+            counter.textContent = value + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target + suffix;
+            }
+        };
+
+        requestAnimationFrame(update);
+    };
+
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    obs.unobserve(entry.target); // run once
+                }
+            });
+        },
+        { threshold: 0.6 }
+    );
+
+    counters.forEach(counter => observer.observe(counter));
+});
+
+
+// 
