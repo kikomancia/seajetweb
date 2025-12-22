@@ -62,10 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // scroll effect sa image
 // window.addEventListener("scroll", () => {
-//   const excelence = document.querySelector(".divExcelence");
+//   const excelence = document.querySelector(".hero-section");
 //   const scrollPos = window.scrollY;
 //   excelence.style.backgroundPosition = `center ${scrollPos * .5}px`;
 // });
+
+
 
 
 // COUNTING EFFECT
