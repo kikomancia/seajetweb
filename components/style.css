@@ -33,7 +33,7 @@ body {
 .normTxt {
   font-family: 'MyFont1';
   color: #4a4a4a;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .titleTxt {
@@ -44,9 +44,6 @@ body {
 /* ------------------------------
    NAVBAR
 ------------------------------ */
-
-
-
 
 
 .imgSlogo {
@@ -406,7 +403,7 @@ body {
 .dot {
   width: 8px;
   height: 8px;
-  background-color: #e60023;
+  background-color: #ED1D43;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -571,8 +568,8 @@ body {
 .yearHistory {
   background-color: #fdf265;
   height: auto;
-  padding: 50px 0px 50px 0px;
-  border-radius: 0px 150px 0px 150px;
+  padding: 80px 0px 80px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 .boxYear {
@@ -582,13 +579,13 @@ body {
   border: 0px solid white;
   border-radius: 40px 0px 40px 0px;
   background-color: #ffffffc2;
-  color: #FF003C;
+  color: #ED1D43;
   /* Text-shadow: 0 3px 12px rgb(0, 0, 0); */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 50px;
-   margin: 0px 0px 55px 0px;
+  margin: 0px 0px 55px 0px;
 
 }
 
@@ -611,6 +608,168 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 60px;
-   margin: 0px 0px 55px 0px;
+  margin: 0px 0px 55px 0px;
 
+}
+
+.divMisVisMain {
+  min-height: auto;
+  width: 100vw;
+  /* FULL viewport width */
+  display: flex;
+  align-items: center;
+  background-image: url("images/Assetbg3@3x.png");
+  background-size: cover;
+  background-position: left center;
+  /* IMPORTANT */
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 100px 0px 100px 0px;
+}
+
+.missionCont {
+  width: 100%;
+  height: auto;
+  background-color: #019BE1;
+  padding: 60px;
+  border-radius: 0px 100px 0px 0px;
+  color: white;
+  font-family: "MyFont1";
+}
+
+.divMisVisMain p {
+  font-size: 20px;
+  color: white;
+}
+
+.visionCont {
+  width: 100%;
+  height: auto;
+  background-color: #ED1D43;
+  padding: 60px;
+  border-radius: 0px 0px 0px 100px;
+  color: white;
+  font-family: "MyFont1";
+}
+
+
+/* .divPillarMain{
+  min-height: auto;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-image: url("images/Assetbg17@3x.png");
+  background-size:contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 0px 0px 100px 0px;
+  background-color: #ED1D43;
+} */
+
+
+
+.divPillarMain {
+  min-height: auto;
+  width: 100%;
+  background-color: #ED1D43;
+
+}
+
+.headerPillar {
+  background-color: #fdf265;
+  width: auto;
+  border-radius: 0px 0px 100px 100px;
+  height: auto;
+  padding: 20px 0px 20px 0px;
+  margin: 0px 20px 0px 20px;
+
+}
+
+/* .appreciation-wrap{
+
+  align-items: center;
+  background-image: url("images/Assetstar15@3x.png");
+  background-size:contain;
+  background-position:  center;
+  background-repeat: no-repeat;
+  height: 300px;
+
+} */
+/* Section */
+
+/* Header */
+.pillarTitle {
+  color: #019be1;
+  font-weight: 800;
+  font-size: 36px;
+}
+
+/* Container */
+.pillarContainer {
+  max-width: 1200px;
+}
+
+/* Card Wrapper */
+.appreciation-wrap {
+  background: #f01e3a;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.appreciation-card {
+  background: #fff36b;
+  border-radius: 28px;
+  padding: 28px;
+  width: 320px;
+  position: relative;
+  box-shadow: 0px 8px 0 #d9cc48;
+}
+
+/* Title */
+.appreciation-card h3 {
+  margin: 0 0 12px;
+  color: #f01e3a;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Text */
+.appreciation-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2c2c2c;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  width: 54px;
+  height: 54px;
+  background: #1fa0ff;
+  color: #fff36b;
+  font-size: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0 #1787d6;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .appreciation-wrap {
+    padding: 24px;
+  }
+
+  .appreciation-card {
+    width: 100%;
+    max-width: 320px;
+  }
 }
