@@ -708,6 +708,7 @@ body {
 /* Container */
 .pillarContainer {
   max-width: 1200px;
+  padding: 40px 0px 50px 0px;
 }
 
 /* Card Wrapper */
