@@ -124,12 +124,12 @@ body {
   background-image: url("images/bg_image_01.png");
   background-size: 120%;
   /* IMPORTANT: allows visible movement */
-  background-position: center top;
+  background-position: center;
   /* start at top */
   min-height: auto;
   padding: 160px 0 85px 0;
   overflow-x: hidden !important;
-  animation: heroBgMove 25s linear infinite;
+  /* animation: heroBgMove 25s linear infinite; */
 }
 
 /* Background movement animation */
@@ -325,6 +325,9 @@ body {
     max-width: 600px;
     overflow: hidden; 
 } */
+.hero-section-leftcont {
+  margin-left: -120px;
+}
 
 /* responsive fix for mobile */
 @media (max-width: 991px) {
@@ -334,6 +337,14 @@ body {
     width: 100%;
     margin-top: 30px;
   }
+
+  .hero-section-leftcont {
+    margin-left: 0px;
+  }
+}
+
+.imgCoreserv {
+  /* padding-right: 1000px !important; */
 }
 
 /* orig-2 */
@@ -347,14 +358,15 @@ body {
 
 /* CORE SERVICES */
 .txtCoreServ {
-  font-size: 35px !important;
+  font-size: 50px !important;
   font-family: "GOTHICB";
   font-weight: 600 !important;
   color: #0a9bde;
+
 }
 
 .subTitleServ {
-  font-size: 22px !important;
+  font-size: 25px !important;
   font-family: "MyFont1";
   font-weight: 600 !important;
   color: #0a9bde;
@@ -362,11 +374,11 @@ body {
 }
 
 .imgServ {
-  height: 50px;
+  height: 60px;
 }
 
 .txtServ {
-  font-size: 17px !important;
+  font-size: 18.5px !important;
   font-family: "MyFont1";
   color: #272727;
   margin-top: 9px;
@@ -638,7 +650,7 @@ body {
 }
 
 .divMisVisMain p {
-  font-size: 20px;
+  font-size: 22px;
   color: white;
 }
 
@@ -652,6 +664,9 @@ body {
   font-family: "MyFont1";
 }
 
+.visionCont p {
+  font-size: 22px;
+}
 
 /* .divPillarMain{
   min-height: auto;
@@ -774,4 +789,3 @@ body {
     max-width: 320px;
   }
 }
-
