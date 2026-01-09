@@ -121,7 +121,7 @@ body {
 
 /* HERO BACKGROUND */
 .hero-section {
-  background-image: url("images/bg_image_01.png");
+  background-image: url("images/imgHme/hme_bg_image_01.webp");
   background-size: 120%;
   /* IMPORTANT: allows visible movement */
   background-position: center;
@@ -386,7 +386,7 @@ body {
 
 /* OUR NETWORKS */
 .divAffil {
-  background-image: url("images/Asset\ 14@3x.png");
+  background-image: url("images/imgHme/hme_Asset14@3x.webp");
   background-size: cover;
   background-position: center;
   background-color: #fdf265;
@@ -507,7 +507,7 @@ body {
 
 
 .divExcelence {
-  background-image: url("images/Asset11@3x.png");
+  background-image: url("images/imgHme/hme_Asset11@3x.webp");
   background-size: cover;
   background-position: center 0px;
   min-height: 400px;
