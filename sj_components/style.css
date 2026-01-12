@@ -586,92 +586,6 @@ main {
 
 /* about css */
 
-.abtBoxHead {
-  min-height: 400px;
-  /* must have height */
-  display: flex;
-  align-items: center;
-  /* vertical center */
-  justify-content: center;
-  /* horizontal center */
-  background-image: url("images/Asset2@3x.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.abtImg {
-  display: block;
-  max-width: 100%;
-  height: 120px;
-  margin-top: 50px;
-}
-
-.txtabtHead {
-  font-size: 35px !important;
-  font-family: "MyFont1";
-  color: #4a4a4a;
-}
-
-.yearHistory {
-  background-color: #fdf265;
-  height: auto;
-  padding: 80px 0px 80px 0px;
-  border-radius: 0px 0px 0px 0px;
-}
-
-.boxYear {
-  padding-top: 0px;
-  width: 150px;
-  height: 150px;
-  border: 0px solid white;
-  border-radius: 40px 0px 40px 0px;
-  background-color: #ffffffc2;
-  color: #ED1D43;
-  /* Text-shadow: 0 3px 12px rgb(0, 0, 0); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  margin: 0px 0px 55px 0px;
-
-}
-
-.mBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.boxLatest {
-  padding-top: 0px;
-  width: auto;
-  height: 120px;
-  border: 0px solid white;
-  border-radius: 50px 50px 0px 0px;
-  background-color: #ffffffc2;
-  color: #019BE1;
-  /* Text-shadow: 0 3px 12px rgb(0, 0, 0); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 60px;
-  margin: 0px 0px 55px 0px;
-
-}
-
-.divMisVisMain {
-  min-height: auto;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  background-image: url("images/imgAbt/abtOfficeAsset20@3x.png");
-  background-size: cover;
-  background-position: left center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  padding: 50px 0px 50px 0px;
-}
 
 .missionCont {
   width: 100%;
@@ -708,22 +622,13 @@ main {
 }
 
 
-
-
-.divPillarMain {
-  min-height: auto;
-  width: 100%;
-  background-color: #ED1D43;
-
-}
-
 .headerPillar {
-  background-color: #fdf265;
+
   width: auto;
   border-radius: 0px 0px 100px 100px;
   height: auto;
   padding: 20px 0px 20px 0px;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 00px 0px 20px;
 
 }
 
@@ -743,18 +648,17 @@ main {
 .pillarTitle {
   color: #019be1;
   font-weight: 800;
-  font-size: 36px;
+  font-size: 45px;
 }
 
 /* Container */
 .pillarContainer {
   max-width: 1200px;
-  padding: 40px 0px 50px 0px;
+  padding: 0px 0px 50px 0px;
 }
 
 /* Card Wrapper */
 .appreciation-wrap {
-  background: #f01e3a;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -926,20 +830,19 @@ main {
 
 .mixvis-main-cont p{
   font-size: 25px;
-   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
 .mixvis-main-cont h1{
   font-size: 55px;
   color:  #fdf265;
-   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
 .mixvis-box-content{
   padding: 100px;
   display: flex;
   align-items: center;
-
   border-radius: 0px 0px 90px 90px;
   background: url("images/imgAbt/abtOfficeAsset20@3x.png") center / cover no-repeat;
 }
