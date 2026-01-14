@@ -780,11 +780,11 @@ main {
   padding:65px
 }
 
-/* .abtSliderBoxContent h2, h1, h3{
+.abtSliderBoxContent h2{
   color: #d9cc48;
   font-size: 42px;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
-} */
+}
 
 .abtSliderBoxContent p{
   text-align: justify;
@@ -889,9 +889,7 @@ main {
   text-shadow: #858585 0px 3px 12px;
 }
 
-.serContent{
 
-}
 .servContent h1{
   font-size: 95px;
   font-family: 'GOTHICB';
