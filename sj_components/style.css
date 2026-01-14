@@ -148,7 +148,7 @@ main {
 }
 
 .ftrLnk:hover {
-  color: rgba(255, 243, 95, 0.95) !important;
+  color: #0A9BDE !important;
 }
 
 /* ------------------------------
@@ -517,10 +517,6 @@ main {
   padding: 7px;
 }
 
-.footerBody a:hover {
-  color: #6b94f4;
-
-}
 
 /* EXCELENCE */
 /* .divExcelence {
