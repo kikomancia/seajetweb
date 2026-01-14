@@ -120,3 +120,24 @@ window.addEventListener("scroll", function () {
 
 
 // 
+
+// accordion
+document.querySelectorAll(".service-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+
+        // Close all other items
+        document.querySelectorAll(".service-content").forEach(item => {
+            if (item !== content) {
+                item.style.maxHeight = null;
+            }
+        });
+
+        // Toggle current
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});

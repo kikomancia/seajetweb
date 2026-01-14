@@ -148,7 +148,7 @@ main {
 }
 
 .ftrLnk:hover {
-  color: #0A9BDE !important;
+  color: #009BE1 !important;
 }
 
 /* ------------------------------
@@ -858,3 +858,121 @@ main {
   border-radius: 0px 0px 90px 90px;
   background: url("images/imgAbt/abtOfficeAsset20@3x.png") center / cover no-repeat;
 }
+
+
+
+/* SERVICES CSS */
+
+.servMainCont {
+  background-image: url("images/imgServ/nobgbg1.png");
+  background-size:cover;
+  background-color: #4281C3;
+  background-position:top;
+  min-height: auto;
+  height: 900px;
+  /* padding: 160px 0 85px 0; */
+  overflow-x: hidden !important;
+  /* animation: heroBgMove 150s linear infinite; */
+  padding: 5%;
+}
+
+.servMainCont h1{
+  color: white;
+  font-size: 55px;
+}
+
+.servMainCont p{
+  color: #FFF35F;
+  font-size: 30px;
+  font-style: italic;
+  margin: 30px 0px 0px 100px;
+  text-shadow: #858585 0px 3px 12px;
+}
+
+.serContent{
+
+}
+.servContent h1{
+  font-size: 95px;
+  font-family: 'GOTHICB';
+  color: #019BE1;
+}
+
+.accordion-header h2{
+  font-size: 30px !important;
+  font-family: 'MyFont1';
+  background-color: #009BE1;
+ 
+}
+
+.services {
+    max-width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+.service-title {
+    text-align: center;
+    color: #1f9bd1;
+    font-size: 48px;
+    margin: 30px 0;
+}
+
+.service-header {
+    padding: 25px;
+    font-size: 40px;
+    text-align: center;
+    color: #1f9bd1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.service-header:hover {
+  
+    color: #0c4f6b;
+}
+
+.yellow {
+    background: #f6ef6d;
+}
+
+.light {
+    background: #f0ecc8;
+}
+
+.service-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    transition: max-height 0.4s ease;
+    /* text-align: center; */
+    padding: 0px 100px 0px 100px;
+}
+.service-content h2 {
+    color: #FF003C;
+    font-size: 40px;
+}
+
+.service-content p, li {
+    margin: 0;
+    color: #555;
+    font-size: 25px;
+    font-family: 'MyFont1';
+    text-align: justify;
+   
+}
+
+/* .service-image{
+  background-image: url("images/imgServ/Asset1-7@3x.png");
+  background-size:cover;
+  background-position:center;
+  min-height: auto;
+  overflow-x: hidden !important;
+  height: 1100px;
+} */
+
+.service-content img {
+    height: auto;
+}
+
+
