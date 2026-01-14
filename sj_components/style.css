@@ -623,12 +623,11 @@ main {
 
 
 .headerPillar {
-
   width: auto;
   border-radius: 0px 0px 100px 100px;
   height: auto;
   padding: 20px 0px 20px 0px;
-  margin: 0px 00px 0px 20px;
+  margin: 0px 00px 0px 0px;
 
 }
 
@@ -655,8 +654,15 @@ main {
 .pillarContainer {
   max-width: 1200px;
   padding: 0px 0px 50px 0px;
+  
 }
-
+.pillarMainCont{
+  align-items: center;
+  background-image: url("images/imgAbt/abtLogobackAsset27@3x.webp");
+  background-size:cover;
+  background-position:  center;
+  background-repeat: no-repeat;
+}
 /* Card Wrapper */
 .appreciation-wrap {
   height: 100%;
@@ -668,44 +674,54 @@ main {
 /* Card */
 .appreciation-card {
   background: #fff36b;
-  border-radius: 28px;
-  padding: 28px;
-  width: 320px;
+  border-radius: 0px 30px;
+  padding: 30px;
+  width: 350px;
+  height: 230px;
   position: relative;
-  box-shadow: 0px 8px 0 #d9cc48;
+  box-shadow: 0px 12px 0 #d9cc48;
+  margin: 10px;
 }
 
 /* Title */
 .appreciation-card h3 {
   margin: 0 0 12px;
   color: #f01e3a;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
+  text-align: justify;
 }
 
 /* Text */
 .appreciation-card p {
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
-  color: #2c2c2c;
+  color: #1787d6;
+  font-weight: 500 !important;
+  font-family: 'MyFont1';
+  margin-top: 17px;
+}
+
+.appreciation-card img{
+  height: 50px !important;
 }
 
 /* Badge */
 .badge {
   position: absolute;
-  top: -20px;
+  top: 16px;
   right: 20px;
   width: 54px;
   height: 54px;
-  background: #1fa0ff;
+  /* background: #1fa0ff; */
   color: #fff36b;
   font-size: 26px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 0 #1787d6;
+  
 }
 
 /* Mobile Fix */
@@ -768,11 +784,11 @@ main {
   padding:65px
 }
 
-.abtSliderBoxContent h2, h1, h3{
+/* .abtSliderBoxContent h2, h1, h3{
   color: #d9cc48;
   font-size: 42px;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
-}
+} */
 
 .abtSliderBoxContent p{
   text-align: justify;
@@ -825,7 +841,7 @@ main {
 .mixvis-main-cont{
   background-color: #fdf265;
   border-radius: 0px 0px 120px 120px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .mixvis-main-cont p{

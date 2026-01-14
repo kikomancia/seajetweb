@@ -32,7 +32,6 @@ window.addEventListener('scroll', () => {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const animatedElements = document.querySelectorAll(".animate-on-scroll");
@@ -66,8 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 //   const scrollPos = window.scrollY;
 //   excelence.style.backgroundPosition = `center ${scrollPos * .5}px`;
 // });
-
-
 
 
 // COUNTING EFFECT
