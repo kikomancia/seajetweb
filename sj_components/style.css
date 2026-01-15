@@ -1040,11 +1040,11 @@ li {
   color: #454545;
 }
 
-.contact-branch-content h2{
+.contact-branch-content h2 {
   color: #009BE1 !important;
 }
 
-.contact-branch-content a{
+.contact-branch-content a {
   color: #000000 !important;
 }
 
@@ -1052,17 +1052,28 @@ li {
   color: #009BE1 !important;
 }
 
-.social-icons h3{
+.social-icons h3 {
   color: #FF003C !important;
   margin-top: 6px;
 }
 
-.contact-col-right a{
+.contact-col-right a {
   color: #009BE1 !important;
   text-decoration: none;
   margin: 2px;
 }
 
-.contact-col-right a:hover{
+.contact-col-right a:hover {
   color: #006898 !important;
+}
+
+
+
+
+/* RESPONSIVENESS START HERE */
+
+/* mobile adoptive */
+@media (min-width: 375px) {
+
+  
 }
