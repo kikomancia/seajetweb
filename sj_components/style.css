@@ -888,7 +888,8 @@ main {
   font-size: 30px;
   font-style: italic;
   margin: 30px 0px 0px 100px;
-  text-shadow: #858585 0px 3px 12px;
+  /* text-shadow: #858585 0px 3px 12px; */
+  font-family: 'myFont1';
 }
 
 
@@ -979,10 +980,11 @@ li {
 
 /* CONTACT US CSS */
 
-.contact-hero{
+.contact-hero {
   padding: 150px 0px 50px 0px;
   /* background-color: #b8b8b8; */
 }
+
 .contact-header {
   background-image: url("images/imgCont/AssetContBg-1@3x.png");
   background-size: cover;
@@ -994,40 +996,73 @@ li {
 .contact-header h1 {
   color: white;
   font-size: 85px;
-  padding: 130px 0px 0px 100px; 
+  padding: 130px 0px 0px 100px;
   text-shadow: #00000061 0px 3px 12px;
 }
 
-.container-message-field{
+.container-message-field {
   background-color: #FFF25F;
   border-radius: 50px 0px 0px 50px;
   padding: 5%;
 }
 
-.container-message-field h1{
-  color: #FF003C ;
+.container-message-field h1 {
+  color: #FF003C;
   font-size: 65px;
 }
 
-.container-message-field label{
+.container-message-field label {
   color: #009BE1;
   font-size: 20px;
 }
 
-.container-message-field ::placeholder{
+.container-message-field ::placeholder {
   color: #00000042;
   font-size: 20px;
 }
 
-.container-message-field button{
+.container-message-field button {
   background-color: #009BE1 !important;
 }
 
-.container-message-field button:hover{
+.container-message-field button:hover {
   background-color: #05628c !important;
 }
 
-.contact-col-right h1{
+.contact-col-right h1 {
   font-size: 75px;
   font-family: 'MyFont1';
+}
+
+.contact-branch-content p {
+  font-family: 'MyFont1';
+  font-size: 22px;
+  color: #454545;
+}
+
+.contact-branch-content h2{
+  color: #009BE1 !important;
+}
+
+.contact-branch-content a{
+  color: #000000 !important;
+}
+
+.contact-branch-content a:hover {
+  color: #009BE1 !important;
+}
+
+.social-icons h3{
+  color: #FF003C !important;
+  margin-top: 6px;
+}
+
+.contact-col-right a{
+  color: #009BE1 !important;
+  text-decoration: none;
+  margin: 2px;
+}
+
+.contact-col-right a:hover{
+  color: #006898 !important;
 }
