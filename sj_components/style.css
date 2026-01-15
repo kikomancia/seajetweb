@@ -102,7 +102,7 @@ body {
   height: 75px;
   /* SMALL */
   padding: 8px 40px;
-  background-color: rgba(255, 243, 95, 0.95);
+  background-color: rgb(255, 242, 95);
 }
 
 /* Shrink logo */
@@ -609,7 +609,7 @@ main {
   border-radius: 0px 0px 0px 100px;
   color: white;
   font-family: "MyFont1";
-    background: url("images/imgAbt/abtEyeAsset35@3x.webp") center / cover no-repeat;
+  background: url("images/imgAbt/abtEyeAsset35@3x.webp") center / cover no-repeat;
 
 }
 
@@ -650,15 +650,17 @@ main {
 .pillarContainer {
   max-width: 1200px;
   padding: 0px 0px 50px 0px;
-  
+
 }
-.pillarMainCont{
+
+.pillarMainCont {
   align-items: center;
   background-image: url("images/imgAbt/abtLogobackAsset27@3x.webp");
-  background-size:cover;
-  background-position:  center;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
+
 /* Card Wrapper */
 .appreciation-wrap {
   height: 100%;
@@ -699,7 +701,7 @@ main {
   margin-top: 17px;
 }
 
-.appreciation-card img{
+.appreciation-card img {
   height: 50px !important;
 }
 
@@ -717,7 +719,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
 
 /* Mobile Fix */
@@ -766,27 +768,27 @@ main {
   background: url("images/imgAbt/slide4_2026.png") center / cover no-repeat;
 }
 
-.abttxtYr{
+.abttxtYr {
   font-size: 300px;
   color: white;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
-  
+
 }
 
-.abtSliderBoxContent{
-  border-radius: 50px 0px 50px 0px!important;
+.abtSliderBoxContent {
+  border-radius: 50px 0px 50px 0px !important;
   background-color: #007ab3a7;
   color: white;
-  padding:65px
+  padding: 65px
 }
 
-.abtSliderBoxContent h2{
+.abtSliderBoxContent h2 {
   color: #d9cc48;
   font-size: 42px;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
-.abtSliderBoxContent p{
+.abtSliderBoxContent p {
   text-align: justify;
   font-size: 18px;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
@@ -834,24 +836,24 @@ main {
 }
 
 /* mission and vision */
-.mixvis-main-cont{
+.mixvis-main-cont {
   background-color: #fdf265;
   border-radius: 0px 0px 120px 120px;
   margin-bottom: 50px;
 }
 
-.mixvis-main-cont p{
+.mixvis-main-cont p {
   font-size: 25px;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
-.mixvis-main-cont h1{
+.mixvis-main-cont h1 {
   font-size: 55px;
-  color:  #fdf265;
+  color: #fdf265;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 }
 
-.mixvis-box-content{
+.mixvis-box-content {
   padding: 100px;
   display: flex;
   align-items: center;
@@ -865,9 +867,9 @@ main {
 
 .servMainCont {
   background-image: url("images/imgServ/nobgbg1.png");
-  background-size:cover;
+  background-size: cover;
   background-color: #4281C3;
-  background-position:top;
+  background-position: top;
   min-height: auto;
   height: 900px;
   /* padding: 160px 0 85px 0; */
@@ -876,12 +878,12 @@ main {
   padding: 5%;
 }
 
-.servMainCont h1{
+.servMainCont h1 {
   color: white;
   font-size: 55px;
 }
 
-.servMainCont p{
+.servMainCont p {
   color: #FFF35F;
   font-size: 30px;
   font-style: italic;
@@ -890,74 +892,76 @@ main {
 }
 
 
-.servContent h1{
+.servContent h1 {
   font-size: 95px;
   font-family: 'GOTHICB';
   color: #019BE1;
 }
 
-.accordion-header h2{
+.accordion-header h2 {
   font-size: 30px !important;
   font-family: 'MyFont1';
   background-color: #009BE1;
- 
+
 }
 
 .services {
-    max-width: 100%;
-    margin: auto;
-    height: auto;
+  max-width: 100%;
+  margin: auto;
+  height: auto;
 }
 
 .service-title {
-    text-align: center;
-    color: #1f9bd1;
-    font-size: 48px;
-    margin: 30px 0;
+  text-align: center;
+  color: #1f9bd1;
+  font-size: 48px;
+  margin: 30px 0;
 }
 
 .service-header {
-    padding: 25px;
-    font-size: 40px;
-    text-align: center;
-    color: #1f9bd1;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 25px;
+  font-size: 40px;
+  text-align: center;
+  color: #1f9bd1;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .service-header:hover {
-  
-    color: #0c4f6b;
+
+  color: #0c4f6b;
 }
 
 .yellow {
-    background: #f6ef6d;
+  background: #f6ef6d;
 }
 
 .light {
-    background: #f0ecc8;
+  background: #f0ecc8;
 }
 
 .service-content {
-    max-height: 0;
-    overflow: hidden;
-    background: #ffffff;
-    transition: max-height 0.4s ease;
-    /* text-align: center; */
-    padding: 0px 100px 0px 100px;
-}
-.service-content h2 {
-    color: #FF003C;
-    font-size: 40px;
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  transition: max-height 0.4s ease;
+  /* text-align: center; */
+  padding: 0px 100px 0px 100px;
 }
 
-.service-content p, li {
-    margin: 0;
-    color: #555;
-    font-size: 25px;
-    font-family: 'MyFont1';
-    text-align: justify;
-   
+.service-content h2 {
+  color: #FF003C;
+  font-size: 40px;
+}
+
+.service-content p,
+li {
+  margin: 0;
+  color: #555;
+  font-size: 24px;
+  font-family: 'MyFont1';
+  text-align: justify;
+
 }
 
 /* .service-image{
@@ -970,7 +974,60 @@ main {
 } */
 
 .service-content img {
-    height: auto;
+  height: auto;
 }
 
+/* CONTACT US CSS */
 
+.contact-hero{
+  padding: 150px 0px 50px 0px;
+  /* background-color: #b8b8b8; */
+}
+.contact-header {
+  background-image: url("images/imgCont/AssetContBg-1@3x.png");
+  background-size: cover;
+  height: 400px;
+  border-radius: 50px;
+
+}
+
+.contact-header h1 {
+  color: white;
+  font-size: 85px;
+  padding: 130px 0px 0px 100px; 
+  text-shadow: #00000061 0px 3px 12px;
+}
+
+.container-message-field{
+  background-color: #FFF25F;
+  border-radius: 50px 0px 0px 50px;
+  padding: 5%;
+}
+
+.container-message-field h1{
+  color: #FF003C ;
+  font-size: 65px;
+}
+
+.container-message-field label{
+  color: #009BE1;
+  font-size: 20px;
+}
+
+.container-message-field ::placeholder{
+  color: #00000042;
+  font-size: 20px;
+}
+
+.container-message-field button{
+  background-color: #009BE1 !important;
+}
+
+.container-message-field button:hover{
+  background-color: #05628c !important;
+}
+
+.contact-col-right h1{
+  font-size: 75px;
+  font-family: 'MyFont1';
+}
