@@ -139,7 +139,7 @@ main {
   }
 
   .navbar-collapse {
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     margin-top: 12px;
     border-radius: 8px;
@@ -150,6 +150,7 @@ main {
 .ftrLnk:hover {
   color: #009BE1 !important;
 }
+
 
 /* ------------------------------
    HERO SECTION
@@ -514,9 +515,12 @@ main {
 .footerBody a {
   text-decoration: none;
   color: #ffffff;
-  padding: 7px;
+  padding: 5px ;
 }
 
+.footerBody h3{
+  font-size: 37px;
+}
 
 /* EXCELENCE */
 /* .divExcelence {
