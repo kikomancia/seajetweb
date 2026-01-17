@@ -125,9 +125,6 @@ body {
 
 /* main */
 
-main {
-  height: auto;
-}
 
 /* Mobile */
 @media (max-width: 991px) {
@@ -608,7 +605,6 @@ main {
   font-family: "MyFont1";
   background: url("images/imgAbt/abtTargetAsset35@3x.webp") center / cover no-repeat;
 
-
 }
 
 .divMisVisMain p {
@@ -760,6 +756,7 @@ main {
   background: url("images/imgAbt/slide1-1990.jpg") center / cover no-repeat;
 }
 
+
 .carousel2 {
   display: flex;
   align-items: center;
@@ -784,8 +781,11 @@ main {
   background: url("images/imgAbt/slide4_2026.png") center / cover no-repeat;
 }
 
+
+
 .abttxtYr {
-  font-size: 300px;
+  text-align: center;
+  font-size: 280px;
   color: white;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
 
@@ -1230,5 +1230,80 @@ margin-bottom: 30px;
 .footer-contents{
   text-align: center !important;
 }
+
+
+/* about responsive */
+.about-title{
+  font-size: 30px !important;
+  padding: 95px 15px 0px 15px !important;
+  border: 0px solid red;
+}
+
+.abttxtYr{
+  font-size: 150px !important;
+}
+
+.abtSliderBoxContent p{
+  font-size: 20px !important;
+  text-align: center !important;
+}
+
+.abtSliderBoxContent h2{
+  font-size: 31px !important;
+  text-align: center !important;
+}
+
+.abtSliderBoxContent{
+  padding: 30px !important;
+    border-radius: 20px 0px 20px 0px !important;
+}
+
+.mixvis-main-cont img{
+  height: 70px !important;
+}
+
+.mixvis-box-content {
+  padding: 10px 0px 10px 0px !important;
+
+}
+
+.missionCont {
+  padding: 10px;
+  margin-bottom: 15px !important;
+  border-radius: 20px 20px 0px 0px;
+  text-align: center !important;
+
+}
+
+.missionCont h1{
+  font-size: 36px !important;
+}
+
+.missionCont p{
+  font-size: 20px !important;
+}
+
+
+.visionCont {
+  padding: 10px;
+  border-radius: 0px 0px 20px 20px;
+
+ text-align: center !important;
+}
+
+.visionCont h1{
+  font-size: 36px !important;
+}
+
+.visionCont p{
+  font-size: 20px !important;
+}
+
+/* remove this to display again the image background */
+.mixvis-box-content{
+  background: none !important;
+}
+
+
 
 }
