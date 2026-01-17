@@ -71,12 +71,22 @@ body {
   font-size: 35px !important;
   font-family: 'EscideBold';
   text-align: right;
-  padding-right: 20px;
-  border-bottom: 1px solid rgba(204, 204, 204, 0.644);
+  padding-right: 10px;
+  border-bottom: 0px solid rgba(46, 66, 247, 0.205);
 }
 
 #mobileNav {
-  background-color: rgb(224, 224, 224);
+
+background:
+      radial-gradient(circle farthest-side at 0% 50%,#ffffff 23.5%,#0000 0)21px 30px,
+      radial-gradient(circle farthest-side at 0% 50%,#f6f6f6 24%,#0000 0)19px 30px,
+      linear-gradient(#ffffff 14%,#0000 0, #0000 85%,#ffffff 0)0 0,
+      linear-gradient(150deg,#ffffff 24%,#f6f6f6 0,#f6f6f6 26%,#0000 0,#0000 74%,#f6f6f6 0,#f6f6f6 76%,#ffffff 0)0 0,
+      linear-gradient(30deg,#ffffff 24%,#f6f6f6 0,#f6f6f6 26%,#0000 0,#0000 74%,#f6f6f6 0,#f6f6f6 76%,#ffffff 0)0 0,
+      linear-gradient(90deg,#f6f6f6 2%,#ffffff 0,#ffffff 98%,#f6f6f6 0%)0 0 #ffffff;
+background-size: 40px 60px;
+background-color: #ffffff;
+
 }
 
 #mobileNav p {
@@ -1013,6 +1023,7 @@ margin-bottom: 30px;
   background-size: cover;
   height: 400px;
   border-radius: 50px;
+  background-position: center;
 
 }
 
@@ -1304,6 +1315,46 @@ margin-bottom: 30px;
   background: none !important;
 }
 
+.appreciation-card {
+  width: auto;
+  height: 290px;
+  padding: 20px !important;
+}
 
+/* CONTACT US MOBILE */
 
+.contact-header {
+  background-image: url("images/imgCont/AssetContBg-1@3x.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 0% 2% 0% 2% !important;
+  height: auto;
+  padding: 50px 0px 50px 0px;
+}
+
+.contact-header h1 {
+  font-size: 50px;
+  text-align: center !important;
+  text-shadow: #00000061 0px px 12px !important;
+  padding: 0px 0px 0px 0px;
+}
+
+.container-message-field{
+  border-radius: 0px !important;
+}
+
+.container-message-field h1 {
+  font-size: 50px !important;
+  text-align: center !important;
+  padding-top: 50px !important;
+}
+
+.container-message-field button {
+  width: 100% !important;
+}
+
+.contact-col-right img{
+  height: 85px !important;
+}
 }
