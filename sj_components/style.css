@@ -67,11 +67,22 @@ body {
   transition: all 0.35s ease;
 }
 
-/* DARKEN ON SCROLL */
-/* .custom-navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.63);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
-} */
+#mobileNav a{
+  font-size: 35px !important;
+  font-family: 'EscideBold';
+  text-align: right;
+  padding-right: 20px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.644);
+}
+
+#mobileNav {
+  background-color: rgb(224, 224, 224);
+}
+
+#mobileNav p {
+  font-family: 'myfont1';
+  font-size: 12px;
+}
 
 /* Logo */
 .navLogo {
@@ -82,11 +93,6 @@ body {
 
 /* Nav links */
 .nav-link {
-  /* color: #2f2f2f !important;
-  font-weight: 700;
-  font-size: 22px;
-  margin-left: 30px; */
-
   font-size: 22px;
   font-weight: 700;
   margin-left: 30px;
@@ -99,7 +105,7 @@ body {
 }
 
 .custom-navbar.scrolled {
-  height: 75px;
+  height: auto;
   /* SMALL */
   padding: 8px 40px;
   background-color: rgb(255, 242, 95);
@@ -120,7 +126,6 @@ body {
 /* main */
 
 main {
-
   height: auto;
 }
 
@@ -133,10 +138,21 @@ main {
   }
 
   .navLogo {
-    width: 160px;
-    width: 120px !important;
-    height: 50px !important;
+  width: 180px !important;
+  height: 60px !important;
   }
+
+  /* Shrink logo */
+.custom-navbar.scrolled .navLogo {
+  width: 180px !important;
+  height: 60px !important;
+  transition: all 0.35s ease;
+}
+
+.custom-navbar {
+
+  height: auto;
+}
 
   .navbar-collapse {
     background-color: rgb(255, 255, 255);
@@ -159,7 +175,7 @@ main {
 /* HERO BACKGROUND */
 .hero-section {
   background-image: url("images/imgHme/hme_bg_image_01.webp");
-  background-size: 120%;
+  background-size:cover;
   /* IMPORTANT: allows visible movement */
   background-position: center;
   /* start at top */
@@ -169,16 +185,6 @@ main {
   /* animation: heroBgMove 25s linear infinite; */
 }
 
-/* Background movement animation */
-@keyframes heroBgMove {
-  0% {
-    background-position: center top;
-  }
-
-  100% {
-    background-position: center bottom;
-  }
-}
 
 /* .s-logo {
     background-image: url("images/slogo.png");
@@ -380,8 +386,10 @@ main {
   }
 }
 
-.imgCoreserv {
-  /* padding-right: 1000px !important; */
+.services-title{
+  font-size: 45px !important;
+  margin-top: -10px !important  ;
+  color: #0A9BDE;
 }
 
 /* orig-2 */
@@ -389,7 +397,7 @@ main {
   background-size: cover;
   background-position: center;
   min-height: auto;
-  padding: 100px 0px 100px 0px;
+  padding: 90px 0px 90px 0px;
   overflow-x: hidden !important;
 }
 
@@ -491,6 +499,10 @@ main {
   padding: 100px 0px 100px 0px;
 }
 
+.partner-title{
+  font-size: 45px !important;
+  color: #0A9BDE;
+}
 .divCardAff {
   border: 2px solid rgb(214, 214, 214);
   border-radius: 20px;
@@ -1080,13 +1092,124 @@ margin-bottom: 30px;
   color: #006898 !important;
 }
 
-
-
+.services-contents{
+  padding-left: 150px !important;
+}
 
 /* RESPONSIVENESS START HERE */
 
 /* mobile adoptive */
 @media (min-width: 375px) {
 
-  
 }
+
+/* Mobile */
+@media (max-width: 991px) {
+  .nav-link {
+    margin-left: 0;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .navLogo {
+  width: 180px !important;
+  height: 60px !important;
+  }
+
+  /* Shrink logo */
+.custom-navbar.scrolled .navLogo {
+  width: 180px !important;
+  height: 60px !important;
+  transition: all 0.35s ease;
+}
+
+.custom-navbar {
+
+  height: auto;
+}
+
+  .navbar-collapse {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .txtTitle{
+    margin-top: -5px !important;
+     text-align: center !important;
+  }
+
+.txtConts-1{
+  text-align: justify !important;
+  background-color: rgba(36, 36, 36, 0.582);
+  padding: 20px;
+  font-size: 17px !important;
+  border-radius: 10px;
+}
+
+.txtCoreServ {
+  margin-top: -105px !important;
+  text-align: center !important;
+  border: 0px solid red;
+  margin-left: -50px !important;
+  font-size: 45px !important;
+
+}
+
+.respon-view{
+  margin: -80px 0px 80px -40px !important; 
+  border: 0px solid red;
+  text-align: center !important;
+}
+
+  .respon-view-content{
+    margin-top: 50px;
+  }
+
+.services-title{
+ text-align: center !important;
+  margin-top: -90px !important;
+  border: 0px solid red;
+  margin-left: -35px !important ;
+}
+  /* network */
+  .network-content-logo{
+    /* display: none !important; */
+    margin-bottom: 80px;
+    margin-top: -50px !important;
+    img{
+      height: 80px !important;
+    }
+  }
+
+  .network-content-title{
+    font-size: 30px !important;
+    text-align: center !important;
+    margin-top: -55px !important;
+  }
+
+  .divAffpart{
+    border-radius: 10px !important;
+  }
+
+  .boxCard{
+
+    border-radius: 30px 0px 30px 0px !important;
+  }
+
+  /* partners and affiliation */
+  .partner-title{
+    border: 0px solid red;
+    font-size: 45px !important;
+    text-align: center !important;
+    margin-top: -30px !important  ;
+  }
+
+  .services-contents{
+  padding-left: 45px !important;
+}
+
+}
+
