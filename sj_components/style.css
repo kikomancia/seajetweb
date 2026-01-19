@@ -45,6 +45,7 @@ body {
    NAVBAR
 ------------------------------ */
 
+
 .imgSlogo {
   height: 900px;
   margin-left: -500px !important;
@@ -862,6 +863,8 @@ body {
   background-color: #fdf265;
   border-radius: 0px 0px 120px 120px;
   margin-bottom: 50px;
+  padding: 50px;
+  
 }
 
 .mixvis-main-cont p {
@@ -1256,9 +1259,11 @@ li {
     margin-bottom: 15px !important;
     border-radius: 20px 20px 0px 0px;
     text-align: center !important;
+    background: url("images/imgAbt/abtTargetAsset35@3x.webp") center / cover no-repeat;
   }
 
   .missionCont h1 {
+    margin-top: 15px !important;
     font-size: 36px !important;
   }
 
@@ -1269,11 +1274,11 @@ li {
   .visionCont {
     padding: 10px;
     border-radius: 0px 0px 20px 20px;
-
     text-align: center !important;
   }
 
   .visionCont h1 {
+     margin-top: 15px !important;
     font-size: 36px !important;
   }
 
@@ -1372,4 +1377,17 @@ li {
 .service-content p, li {
   text-align: left !important;
 }
+
+/* mission and vision */
+.mixvis-main-cont {
+  margin-top: 10px 0px 10px 0px !important  ;
+  padding: 50px 10px 20px 10px !important;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+background: #FFF35F;
+background: linear-gradient(180deg, rgba(255, 243, 95, 1) 0%, rgba(255, 255, 255, 1) 93%);
+
+}
+
+
 }
