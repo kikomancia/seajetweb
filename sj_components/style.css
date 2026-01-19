@@ -978,7 +978,6 @@ li {
   color: #555;
   font-size: 24px;
   font-family: "MyFont1";
-  text-align: justify;
 }
 
 .services-text-content {
@@ -986,18 +985,6 @@ li {
   margin-bottom: 30px;
 }
 
-/* .service-image{
-  background-image: url("images/imgServ/Asset1-7@3x.png");
-  background-size:cover;
-  background-position:center;
-  min-height: auto;
-  overflow-x: hidden !important;
-  height: 1100px;
-} */
-
-.service-content img {
-  height: auto;
-}
 
 /* CONTACT US CSS */
 
@@ -1363,4 +1350,26 @@ li {
 }
 
 
+/* SERVICES */
+.service-title {
+  font-size: 55px !important;
+}
+
+.service-header {
+  font-size: 35px;
+}
+
+
+.services-text-content h2{
+  font-size: 30px !important;
+}
+
+
+.service-content {
+  padding: 0px 20px 0px 20px;
+}
+
+.service-content p, li {
+  text-align: left !important;
+}
 }
