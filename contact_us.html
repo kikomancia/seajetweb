@@ -12,6 +12,9 @@
     <!-- Fonts / CSS -->
     <link rel="stylesheet" href="sj_components/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -91,27 +94,26 @@
 
                         <div class="mb-4 mt-5">
                             <label for="txtName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="txtName" placeholder="ex: Juan Dela Cruz">
+                            <input type="text" class="form-control" id="txtName" disabled>
                         </div>
 
                         <div class="mb-4">
                             <label for="txtEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="txtEmail" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="txtEmail" disabled>
                         </div>
 
                         <div class="mb-4">
                             <label for="txtPhoneNum" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="txtPhoneNum"
-                                placeholder="Ex: 09105474415 or +639252235222">
+                            <input type="text" class="form-control" id="txtPhoneNum" disabled>
                         </div>
 
                         <div class="mb-4">
                             <label for="txtMessage" class="form-label">Message</label>
-                            <textarea class="form-control" id="txtMessage" rows="4"></textarea>
+                            <textarea disabled class="form-control" id="txtMessage" rows="4"></textarea>
                         </div>
 
                         <div class="mb-4 text-end">
-                            <button class="btn btn-primary btn-lg">Send Message</button>
+                            <button id="showAlertBtn" class="btn btn-primary btn-lg">Send Message</button>
                         </div>
                     </div>
 
@@ -402,7 +404,19 @@
 
     <!-- local script -->
     <script src="sj_components/javsript.js"></script>
+    <script>
+        // Grab the button
+        const button = document.getElementById('showAlertBtn');
 
+        // Add click event listener
+        button.addEventListener('click', () => {
+            Swal.fire({
+                icon: "info",
+                title: "Hello!",
+                text: "This feature is coming soon. For inquiries, please reach us through our email or contact numbers provided."
+            });
+        });
+    </script>
 </body>
 
 </html>
