@@ -1,21 +1,25 @@
 <?php
-    ini_set('session.use_only_cookies', 1);
-    ini_set('session.cookie_httponly', 1);
+ini_set('session.use_only_cookies', 1);
+ini_set('session.cookie_httponly', 1);
 
-    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-        ini_set('session.cookie_secure', 1);
-    }
+if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+    ini_set('session.cookie_secure', 1);
+}
 
-    session_start(); // MUST BE FIRST
+session_start();
 
-    //include('php_files/fetch_data.php');
+// Redirect if not logged in
+if (empty($_SESSION['logged'])) {
+    header("Location: index.php");
+    exit;
+}
 
-    if (empty($_SESSION['logged'])) {
-        header("Location: index.php");
-        exit;
-    }
+// Include your data functions AFTER session_start
+include('php_files/fetch_data.php');
 
-    $disp_name = $_SESSION['disp_name'];
+// Safe to use session variables
+$disp_name = $_SESSION['disp_name'];
+
 
 ?>
 
