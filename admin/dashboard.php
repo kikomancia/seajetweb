@@ -1,17 +1,17 @@
 <?php
-    ini_set('session.use_only_cookies', 1);
-    ini_set('session.cookie_httponly', 1);
+    // ini_set('session.use_only_cookies', 1);
+    // ini_set('session.cookie_httponly', 1);
 
-    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-        ini_set('session.cookie_secure', 1);
-    }
+    // if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+    //     ini_set('session.cookie_secure', 1);
+    // }
 
     session_start(); // MUST BE FIRST
 
     include('php_files/fetch_data.php');
 
     if (empty($_SESSION['logged'])) {
-        header("Location: dashboard.php");
+        header("Location: index.php");
         exit;
     }
 
