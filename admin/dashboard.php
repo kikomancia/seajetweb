@@ -2,15 +2,15 @@
 
     include('php_files/fetch_data.php');
 
-    // session_start();
+    session_start();
 
-    // if (!isset($_SESSION['logged'])) {
-    //     header("Location: index.php");
-    //     exit;
-    // }
+    if (!isset($_SESSION['logged'])) {
+        header("Location: index.php");
+        exit;
+    }
 
-    // // Get user name
-    // $disp_name = $_SESSION['disp_name']
+    // Get user name
+    $disp_name = $_SESSION['disp_name']
 
 ?>
 
