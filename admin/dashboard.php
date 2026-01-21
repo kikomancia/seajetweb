@@ -6,19 +6,19 @@ if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
     ini_set('session.cookie_secure', 1);
 }
 
-session_start();
+// session_start();
 
-// Redirect if not logged in
-if (empty($_SESSION['logged'])) {
-    header("Location: index.php");
-    exit;
-}
+// // Redirect if not logged in
+// if (empty($_SESSION['logged'])) {
+//     header("Location: index.php");
+//     exit;
+// }
 
 // Include your data functions AFTER session_start
 include('php_files/fetch_data.php');
 
-// Safe to use session variables
-$disp_name = $_SESSION['disp_name'];
+// // Safe to use session variables
+// $disp_name = $_SESSION['disp_name'];
 
 
 ?>
