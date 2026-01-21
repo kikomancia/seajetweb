@@ -39,7 +39,7 @@ if ($result->num_rows === 1) {
         $_SESSION['logged']  = true;
 
         // echo json_encode(["statusCode" => 200]);
-        header("Location: ../../../dashboard.php");
+        header("Location: ../../../../admin/dashboard.php");
     } else {
         echo json_encode(["statusCode" => 202, "message" => "Invalid password"]);
     }
