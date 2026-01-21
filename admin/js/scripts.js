@@ -40,7 +40,7 @@ $(document).on("click", "#btnLogin", function () {
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successful',
-                    timer: 1200,
+                    // timer: 1200,
                     footer: 'SeaJet International Inc.',
                     showConfirmButton: true
                 }).then(() => {

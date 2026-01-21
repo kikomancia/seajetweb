@@ -34,8 +34,6 @@ if ($result->num_rows === 1) {
     $row = $result->fetch_assoc();
 
     if (password_verify($pass, $row['user_pass'])) {
-
-        // ✅ Set session
         $_SESSION['disp_name'] = $row['name'];
         $_SESSION['email']   = $row['email'];
         $_SESSION['logged']  = true;

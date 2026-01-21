@@ -1,15 +1,17 @@
 <?php
 
-include('php_files/fetch_data.php');
-session_start();
+    // include('php_files/fetch_data.php');
 
-if (!isset($_SESSION['logged'])) {
-    header("Location: index.php");
-    exit;
-}
+    // session_start();
 
-// Get user name
-$disp_name = $_SESSION['disp_name']
+    // if (!isset($_SESSION['logged'])) {
+    //     header("Location: index.php");
+    //     exit;
+    // }
+
+    // // Get user name
+    // $disp_name = $_SESSION['disp_name']
+
 ?>
 
 
