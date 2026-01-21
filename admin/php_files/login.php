@@ -38,8 +38,8 @@ if ($result->num_rows === 1) {
         $_SESSION['email']   = $row['email'];
         $_SESSION['logged']  = true;
 
-        // echo json_encode(["statusCode" => 200]);
-        header("Location: ../../../../admin/dashboard.php");
+        echo json_encode(["statusCode" => 200]);
+        // header("Location: ../../../../admin/dashboard.php");
     } else {
         echo json_encode(["statusCode" => 202, "message" => "Invalid password"]);
     }

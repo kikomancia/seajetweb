@@ -8,7 +8,7 @@
 
     session_start(); // MUST BE FIRST
 
-    include('php_files/fetch_data.php');
+    //include('php_files/fetch_data.php');
 
     if (empty($_SESSION['logged'])) {
         header("Location: index.php");
