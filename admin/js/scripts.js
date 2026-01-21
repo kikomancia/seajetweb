@@ -42,7 +42,7 @@ $(document).on("click", "#btnLogin", function () {
                     title: 'Login Successful',
                     timer: 1200,
                     footer: 'SeaJet International Inc.',
-                    showConfirmButton: false
+                    showConfirmButton: true
                 }).then(() => {
                     window.location.href = "dashboard.php";
                 });
