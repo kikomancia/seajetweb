@@ -25,8 +25,6 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-
-
 // login page js
 $(document).on("click", "#btnLogin", function () {
 
