@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <script src="../../seajetweb/admin/js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
 
