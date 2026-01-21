@@ -1,6 +1,6 @@
 <?php
 
-    // include('php_files/fetch_data.php');
+    include('php_files/fetch_data.php');
 
     // session_start();
 
@@ -13,7 +13,6 @@
     // $disp_name = $_SESSION['disp_name']
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
