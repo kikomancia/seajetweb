@@ -33,6 +33,7 @@ $(document).on("click", "#btnLogin", function () {
     $.ajax({
         url: "../admin/php_files/login.php",
         type: "POST",
+        dataType: "json",
         data: $("#frmLogin").serialize(),
         success: function (response) {
 
@@ -40,9 +41,9 @@ $(document).on("click", "#btnLogin", function () {
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successful',
-                    // timer: 1200,
+                    timer: 1200,
                     footer: 'SeaJet International Inc.',
-                    showConfirmButton: true
+                    // showConfirmButton: true
                 }).then(() => {
                     window.location.href = "dashboard.php";
                 });
