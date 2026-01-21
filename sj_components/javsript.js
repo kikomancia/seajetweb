@@ -146,8 +146,8 @@ $(document).on("click", "#btnSendMsg", function (e) {
 
     $.ajax({
         type: "POST",
-        // url: "../../seajetweb/sj_components/msg.php",
-         url: "msg.php",
+        url: "../../seajetweb/sj_components/msg.php",
+        //  url: "msg.php",
         data: msgData,
         dataType: "json", // expect JSON response
 
