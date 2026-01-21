@@ -43,7 +43,7 @@ $(document).on("click", "#btnLogin", function () {
                     footer: 'SeaJet International Inc.',
                     // showConfirmButton: true
                 }).then(() => {
-                    window.location.href = "dashboard.php";
+                    window.location.href = "inquiries.php";
                 });
 
             } else if (response.statusCode === 201) {
