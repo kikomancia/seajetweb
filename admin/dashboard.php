@@ -11,7 +11,7 @@
     include('php_files/fetch_data.php');
 
     if (empty($_SESSION['logged'])) {
-        header("Location: index.php");
+        header("Location: dashboard.php");
         exit;
     }
 
