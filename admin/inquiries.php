@@ -104,6 +104,9 @@ include('php_files/fetch_data.php');
             <main>
                 <div class="container-fluid px-4">
                     <h2 class="mt-4">Client Inquiries</h2>
+
+
+
                     <!--                     
                     <div class="row">
                         <div class="col-xl-4 col-md-6">
@@ -144,6 +147,11 @@ include('php_files/fetch_data.php');
                         </div> -->
 
                         <div class="card-body">
+                            <div class="mb-2">
+                                <button class="btn btn-success btnRefreshData"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                        <path fill="currentColor" d="M15.65 4.35A8 8 0 1 0 17.4 13h-2.22a6 6 0 1 1-1-7.22L11 9h7V2z" />
+                                    </svg> Refesh </button>
+                            </div>
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
@@ -178,8 +186,6 @@ include('php_files/fetch_data.php');
                                                 <?php echo htmlspecialchars($fetchMessages['cli_message']); ?>
                                             </td>
 
-
-
                                         </tr>
 
                                     <?php endforeach; ?>
@@ -213,6 +219,12 @@ include('php_files/fetch_data.php');
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <script>
+        // Refresh data
+        document.querySelector('.btnRefreshData').addEventListener('click', function() {
+            location.reload();
+        });
+    </script>
 </body>
 
 </html>
