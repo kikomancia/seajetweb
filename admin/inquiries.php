@@ -219,10 +219,29 @@ include('php_files/fetch_data.php');
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <button class="btnRefreshData">Refresh Data</button>
+
     <script>
-        // Refresh data
         document.querySelector('.btnRefreshData').addEventListener('click', function() {
-            location.reload();
+            const btn = this;
+
+            // Change button content to spinner + text
+            btn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:6px;">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3c4.97 0 9 4.03 9 9">
+                <animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/>
+            </path>
+        </svg>
+        Loading data...
+    `;
+
+            // Disable button to prevent multiple clicks
+            btn.disabled = true;
+
+            // Reload page
+            setTimeout(function() {
+                location.reload();
+            }, 100);
         });
     </script>
 </body>
