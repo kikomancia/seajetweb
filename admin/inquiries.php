@@ -49,48 +49,27 @@ function statusBadge(status) {
 }
 
 function actionButtons(id, status) {
-    var btns = '<button class="btn-action btn-read-msg" onclick="openMessage(' + id + ')">'
-             + '<i class="fas fa-envelope-open-text me-1"></i>Read</button>';
+    var btns = '';
+
+    if (status === 'unread') {
+        btns += '<button class="btn-action btn-read-msg" onclick="updateStatus(' + id + ',\'read\')">'
+              + '<i class="fas fa-envelope-open-text me-1"></i>Read</button> ';
+    }
 
     if (status === 'read') {
-        btns += ' <button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
-              + '<i class="fas fa-envelope me-1"></i>Mark Unread</button>';
+        btns += '<button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
+              + '<i class="fas fa-envelope me-1"></i>Mark Unread</button> ';
     }
 
     if (status !== 'hidden') {
-        btns += ' <button class="btn-action btn-hide" onclick="confirmHide(' + id + ')">'
+        btns += '<button class="btn-action btn-hide" onclick="confirmHide(' + id + ')">'
               + '<i class="fas fa-eye-slash me-1"></i>Hide</button>';
     } else {
-        btns += ' <button class="btn-action btn-unhide" onclick="updateStatus(' + id + ',\'unread\')">'
+        btns += '<button class="btn-action btn-unhide" onclick="updateStatus(' + id + ',\'unread\')">'
               + '<i class="fas fa-eye me-1"></i>Unhide</button>';
     }
 
     return btns;
-}
-
-// ── Modal ─────────────────────────────────────────
-function openMessage(id) {
-    var row = null;
-    for (var i = 0; i < allRows.length; i++) {
-        if (allRows[i].id == id) { row = allRows[i]; break; }
-    }
-    if (!row) return;
-
-    // Mark as read immediately when button is clicked
-    if (row.status === 'unread') {
-        $.post('php_files/update_inquiry_status.php', { id: id, status: 'read' }, function(res) {
-            if (res.statusCode === 200) loadInquiries(currentFilter);
-        }, 'json');
-    }
-
-    document.getElementById('modalSenderName').textContent  = row.cli_name;
-    document.getElementById('modalStatusBadge').innerHTML   = statusBadge(row.status);
-    document.getElementById('modalDate').textContent        = formatDate(row.date_time) + ' · ' + formatTime(row.date_time);
-    document.getElementById('modalEmail').textContent       = row.cli_email;
-    document.getElementById('modalPhone').textContent       = row.cli_num || '—';
-    document.getElementById('modalMessageBody').textContent = row.cli_message;
-
-    bootstrap.Modal.getOrCreateInstance(document.getElementById('messageModal')).show();
 }
 
 // ── Tab counts ────────────────────────────────────
