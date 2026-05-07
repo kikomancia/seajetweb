@@ -415,6 +415,8 @@ body.sidebar-collapsed #main {
     letter-spacing: 0.4px;
     color: #7b8a9b;
     border-bottom: 2px solid #eaecf2;
+    background: #fafbfd;
+    white-space: nowrap;
 }
 
 .table td { font-size: 0.875rem; vertical-align: middle; }
@@ -427,6 +429,117 @@ td.msg-cell {
     white-space: normal;
     word-wrap: break-word;
 }
+
+/* ── Inquiries table overrides ── */
+.inq-table th, .inq-table td {
+    border-bottom: 1px solid #f0f2f7;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.inq-table thead th {
+    background: #f8f9fc;
+    border-bottom: 1px solid #eaecf2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Sortable column headers */
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+th.sortable:hover { color: #4361ee; }
+
+.sort-icon {
+    font-size: 0.7rem;
+    color: #c0c8d8;
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: color 0.15s;
+}
+
+th.sortable:hover .sort-icon { color: #4361ee; }
+.sort-active { color: #4361ee !important; }
+
+/* ── Inquiries search + controls ── */
+.inq-search-wrap {
+    position: relative;
+    width: 210px;
+}
+
+.inq-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #adb5bd;
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+.inq-search {
+    width: 100%;
+    padding: 6px 10px 6px 30px;
+    font-size: 0.84rem;
+    border: 1.5px solid #dde1ea;
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    color: #2c3e50;
+}
+
+.inq-search:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.inq-perpage {
+    font-size: 0.84rem;
+    border: 1.5px solid #dde1ea;
+    border-radius: 7px;
+    padding: 6px 28px 6px 10px;
+    color: #2c3e50;
+    min-width: 110px;
+}
+
+.inq-perpage:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* ── Pagination ── */
+.page-link {
+    color: #4361ee;
+    border-color: #eaecf2;
+    font-size: 0.84rem;
+    padding: 5px 10px;
+    background: #fff;
+    transition: background 0.15s, color 0.15s;
+}
+
+.page-link:hover {
+    color: #3451d1;
+    background: #f0f2ff;
+    border-color: #c5cdf9;
+}
+
+.page-item.active .page-link {
+    background: #4361ee;
+    border-color: #4361ee;
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #c0c8d8;
+    background: #fafbfd;
+    border-color: #eaecf2;
+}
+
+.page-item:first-child .page-link { border-radius: 7px 0 0 7px; }
+.page-item:last-child  .page-link { border-radius: 0 7px 7px 0; }
 
 /* ── Action buttons ── */
 .btn-action {

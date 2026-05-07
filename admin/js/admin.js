@@ -21,15 +21,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Init DataTable if present
-    const table = document.getElementById('adminTable');
-    if (table && typeof simpleDatatables !== 'undefined') {
-        new simpleDatatables.DataTable(table, {
-            searchable: true,
-            sortable: true,
-            perPage: 15,
-            perPageSelect: [10, 15, 25, 50]
-        });
-    }
 
 });
