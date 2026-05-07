@@ -31,7 +31,8 @@ $(document).ready(function () {
                         timer: 1000,
                         showConfirmButton: false
                     }).then(function () {
-                        window.location.href = '/admin/dashboard.php';
+                         window.location.href = '/admin/dashboard.php';
+                        // window.location.href = '../../../seajetweb/admin/dashboard.php';
                     });
                 } else if (res.statusCode === 201) {
                     showError('Missing fields', 'Please fill out all required fields.');

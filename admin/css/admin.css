@@ -326,8 +326,86 @@ body.sidebar-collapsed #main {
     font-weight: 600;
 }
 
-.status-badge.active   { background: rgba(25, 135, 84, 0.10); color: #198754; }
-.status-badge.inactive { background: rgba(220, 53, 69, 0.10);  color: #dc3545; }
+.status-badge.active    { background: rgba(25, 135, 84, 0.10);   color: #198754; }
+.status-badge.inactive  { background: rgba(220, 53, 69, 0.10);   color: #dc3545; }
+.status-badge.inq-unread { background: rgba(13, 110, 253, 0.10); color: #0d6efd; }
+.status-badge.inq-read   { background: rgba(25, 135, 84, 0.10);  color: #198754; }
+.status-badge.inq-hidden { background: rgba(108, 117, 125, 0.10); color: #6c757d; }
+
+/* ── Filter tabs (inquiries page) ── */
+.filter-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    border: 1.5px solid #dde1ea;
+    background: #fff;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #7b8a9b;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.filter-tab:hover {
+    border-color: #4361ee;
+    color: #4361ee;
+}
+
+.filter-tab.active {
+    background: #4361ee;
+    border-color: #4361ee;
+    color: #fff;
+}
+
+.tab-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0 5px;
+    background: rgba(67, 97, 238, 0.12);
+    color: #4361ee;
+    line-height: 1;
+}
+
+.filter-tab.active .tab-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.tab-badge:empty { display: none; }
+
+/* ── Inquiry action buttons ── */
+.btn-mark-read   { background: rgba(25, 135, 84, 0.10);   color: #198754; }
+.btn-mark-unread { background: rgba(13, 110, 253, 0.10);  color: #0d6efd; }
+.btn-hide        { background: rgba(220, 53, 69, 0.10);   color: #dc3545; }
+.btn-unhide      { background: rgba(108, 117, 125, 0.10); color: #6c757d; }
+
+/* ── Sidebar unread badge ── */
+.sidebar-unread-badge {
+    margin-left: auto;
+    background: #dc3545;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
 
 /* ── Table ── */
 .table th {

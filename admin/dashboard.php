@@ -6,7 +6,7 @@ require 'includes/db.php';
 
 // Stat queries
 $totalInquiries = mysqli_fetch_assoc(mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_messages"))['c'];
-$todayInquiries = mysqli_fetch_assoc(mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_messages WHERE DATE(date_time) = CURDATE()"))['c'];
+$unreadCount    = mysqli_fetch_assoc(mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_messages WHERE status = 'unread'"))['c'];
 $totalUsers     = mysqli_fetch_assoc(mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_users WHERE status = 'active'"))['c'];
 
 // Recent 5 inquiries
@@ -36,10 +36,10 @@ include 'includes/header.php';
     </div>
     <div class="col-12 col-sm-6 col-xl-4">
         <div class="stat-card">
-            <div class="stat-icon orange"><i class="fas fa-calendar-day"></i></div>
+            <div class="stat-icon orange"><i class="fas fa-envelope"></i></div>
             <div class="stat-body">
-                <div class="stat-label">Today's Inquiries</div>
-                <div class="stat-value"><?= number_format($todayInquiries) ?></div>
+                <div class="stat-label">Unread Inquiries</div>
+                <div class="stat-value"><?= number_format($unreadCount) ?></div>
             </div>
         </div>
     </div>

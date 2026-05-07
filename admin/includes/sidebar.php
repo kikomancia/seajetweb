@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a href="inquiries.php" class="<?= $activePage === 'inquiries' ? 'active' : '' ?>">
                     <i class="fas fa-comment-dots"></i> Inquiries
+                    <?php if (($unreadCount ?? 0) > 0): ?>
+                        <span class="sidebar-unread-badge"><?= (int)$unreadCount ?></span>
+                    <?php endif; ?>
                 </a>
             </li>
         </ul>

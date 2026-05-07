@@ -4,8 +4,9 @@ $activePage = 'users';
 require 'includes/auth.php';
 require 'includes/db.php';
 
-$result = mysqli_query($connect, "SELECT id, name, email, status FROM sj_users ORDER BY name ASC");
-$users  = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$result      = mysqli_query($connect, "SELECT id, name, email, status FROM sj_users ORDER BY name ASC");
+$users       = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$unreadCount = mysqli_fetch_assoc(mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_messages WHERE status = 'unread'"))['c'];
 mysqli_close($connect);
 
 $extraScripts = <<<HTML
