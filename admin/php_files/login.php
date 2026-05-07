@@ -1,6 +1,7 @@
 <?php
 ini_set('session.use_only_cookies', 1);
 ini_set('session.cookie_httponly', 1);
+ini_set('session.cookie_path', '/');
 
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
     ini_set('session.cookie_secure', 1);
@@ -45,5 +46,7 @@ $_SESSION['disp_name'] = $row['name'];
 $_SESSION['email']     = $row['email'];
 $_SESSION['user_id']   = $row['id'];
 $_SESSION['logged']    = true;
+
+session_write_close(); // flush session data to disk before response is sent
 
 echo json_encode(['statusCode' => 200]);
