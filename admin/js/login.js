@@ -31,7 +31,7 @@ $(document).ready(function () {
                         timer: 1000,
                         showConfirmButton: false
                     }).then(function () {
-                        window.location.href = 'dashboard.php';
+                        window.location.href = '../dashboard.php';
                     });
                 } else if (res.statusCode === 201) {
                     showError('Missing fields', 'Please fill out all required fields.');
