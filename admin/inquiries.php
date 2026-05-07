@@ -10,14 +10,18 @@ mysqli_close($connect);
 $extraScripts = <<<'HTML'
 <script>
 // ── State ─────────────────────────────────────────
-var allRows      = [];
-var filteredRows = [];
-var currentPage  = 1;
-var perPage      = 15;
-var sortCol      = 'date_time';
-var sortAsc      = false;
-var searchQuery  = '';
+var allRows       = [];
+var filteredRows  = [];
+var currentPage   = 1;
+var perPage       = 15;
+var sortCol       = 'date_time';
+var sortAsc       = false;
+var searchQuery   = '';
 var currentFilter = 'all';
+
+// Active message opened in modal
+var activeId     = null;
+var activeStatus = null;
 
 // ── Helpers ───────────────────────────────────────
 function escHtml(str) {
@@ -27,13 +31,13 @@ function escHtml(str) {
 }
 
 function formatDate(dt) {
-    var d = new Date(dt.replace(' ', 'T'));
-    return d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+    return new Date(dt.replace(' ', 'T'))
+        .toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
 }
 
 function formatTime(dt) {
-    var d = new Date(dt.replace(' ', 'T'));
-    return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    return new Date(dt.replace(' ', 'T'))
+        .toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 }
 
 function statusBadge(status) {
@@ -47,23 +51,54 @@ function statusBadge(status) {
 }
 
 function actionButtons(id, status) {
-    var btns = '';
-    if (status === 'unread') {
-        btns += '<button class="btn-action btn-mark-read" onclick="updateStatus(' + id + ',\'read\')">'
-              + '<i class="fas fa-check me-1"></i>Read</button> ';
-    } else if (status === 'read') {
-        btns += '<button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
-              + '<i class="fas fa-envelope me-1"></i>Unread</button> ';
+    var btns = '<button class="btn-action btn-read-msg" onclick="openMessage(' + id + ')">'
+             + '<i class="fas fa-envelope-open-text me-1"></i>Read Message</button>';
+
+    if (status === 'read') {
+        btns += ' <button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
+              + '<i class="fas fa-envelope me-1"></i>Mark Unread</button>';
     }
+
     if (status !== 'hidden') {
-        btns += '<button class="btn-action btn-hide" onclick="confirmHide(' + id + ')">'
+        btns += ' <button class="btn-action btn-hide" onclick="confirmHide(' + id + ')">'
               + '<i class="fas fa-eye-slash me-1"></i>Hide</button>';
     } else {
-        btns += '<button class="btn-action btn-unhide" onclick="updateStatus(' + id + ',\'unread\')">'
+        btns += ' <button class="btn-action btn-unhide" onclick="updateStatus(' + id + ',\'unread\')">'
               + '<i class="fas fa-eye me-1"></i>Unhide</button>';
     }
+
     return btns;
 }
+
+// ── Modal ─────────────────────────────────────────
+function openMessage(id) {
+    var row = allRows.find(function(r) { return r.id == id; });
+    if (!row) return;
+
+    activeId     = row.id;
+    activeStatus = row.status;
+
+    document.getElementById('modalSenderName').textContent  = row.cli_name;
+    document.getElementById('modalStatusBadge').innerHTML   = statusBadge(row.status);
+    document.getElementById('modalDate').textContent        = formatDate(row.date_time) + ' · ' + formatTime(row.date_time);
+    document.getElementById('modalEmail').textContent       = row.cli_email;
+    document.getElementById('modalPhone').textContent       = row.cli_num || '—';
+    document.getElementById('modalMessageBody').textContent = row.cli_message;
+
+    new bootstrap.Modal(document.getElementById('messageModal')).show();
+}
+
+// Auto-mark as read when modal closes (only if was unread)
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('messageModal').addEventListener('hidden.bs.modal', function() {
+        if (activeId !== null && activeStatus === 'unread') {
+            $.post('php_files/update_inquiry_status.php', { id: activeId, status: 'read' }, function(res) {
+                if (res.statusCode === 200) loadInquiries(currentFilter);
+            }, 'json');
+        }
+        activeId = activeStatus = null;
+    });
+});
 
 // ── Tab counts ────────────────────────────────────
 function updateTabCounts(counts) {
@@ -78,20 +113,19 @@ function updateTabCounts(counts) {
 function renderRows(rows) {
     var tbody = document.getElementById('tableBody');
     if (!rows || !rows.length) {
-        tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted py-5">No inquiries found.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-5">No inquiries found.</td></tr>';
         return;
     }
     var html = '';
     for (var i = 0; i < rows.length; i++) {
-        var row = rows[i];
-        html += '<tr>';
+        var row  = rows[i];
+        var bold = row.status === 'unread' ? ' fw-semibold' : '';
+        html += '<tr class="' + (row.status === 'unread' ? 'row-unread' : '') + '">';
         html += '<td class="ps-4">'
-              + '<span class="fw-medium">' + escHtml(formatDate(row.date_time)) + '</span><br>'
+              + '<span class="' + bold + '">' + escHtml(formatDate(row.date_time)) + '</span><br>'
               + '<small class="text-muted">' + escHtml(formatTime(row.date_time)) + '</small></td>';
-        html += '<td class="fw-medium">' + escHtml(row.cli_name) + '</td>';
+        html += '<td class="fw-medium' + bold + '">' + escHtml(row.cli_name) + '</td>';
         html += '<td class="text-muted">' + escHtml(row.cli_email) + '</td>';
-        html += '<td class="text-muted">' + escHtml(row.cli_num) + '</td>';
-        html += '<td class="msg-cell text-muted">' + escHtml(row.cli_message) + '</td>';
         html += '<td>' + statusBadge(row.status) + '</td>';
         html += '<td class="text-nowrap">' + actionButtons(row.id, row.status) + '</td>';
         html += '</tr>';
@@ -203,10 +237,10 @@ function loadInquiries(filter) {
     document.querySelectorAll('.filter-tab').forEach(function(t) {
         t.classList.toggle('active', t.dataset.filter === filter);
     });
-    document.getElementById('tableInfo').textContent       = '';
-    document.getElementById('tablePagination').innerHTML   = '';
+    document.getElementById('tableInfo').textContent     = '';
+    document.getElementById('tablePagination').innerHTML = '';
     document.getElementById('tableBody').innerHTML =
-        '<tr><td colspan="7" class="text-center py-5 text-muted">'
+        '<tr><td colspan="5" class="text-center py-5 text-muted">'
         + '<span class="spinner-border spinner-border-sm me-2"></span>Loading...</td></tr>';
 
     $.get('php_files/fetch_inquiries.php', { filter: filter }, function(res) {
@@ -216,7 +250,7 @@ function loadInquiries(filter) {
         applySearchAndSort();
     }, 'json').fail(function() {
         document.getElementById('tableBody').innerHTML =
-            '<tr><td colspan="7" class="text-center text-danger py-5">'
+            '<tr><td colspan="5" class="text-center text-danger py-5">'
             + '<i class="fas fa-exclamation-circle me-2"></i>Failed to load. Please refresh.</td></tr>';
     });
 }
@@ -289,7 +323,7 @@ include 'includes/header.php';
     <p>All messages submitted via the contact form.</p>
 </div>
 
-<!-- Controls: filter tabs + search/per-page -->
+<!-- Controls: filter tabs + search / per-page -->
 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
 
     <div class="filter-tabs">
@@ -310,8 +344,7 @@ include 'includes/header.php';
     <div class="d-flex align-items-center gap-2">
         <div class="inq-search-wrap">
             <i class="fas fa-search inq-search-icon"></i>
-            <input type="search" id="tableSearch" class="inq-search"
-                   placeholder="Search inquiries…">
+            <input type="search" id="tableSearch" class="inq-search" placeholder="Search…">
         </div>
         <select id="perPageSelect" class="form-select form-select-sm inq-perpage">
             <option value="10">10 / page</option>
@@ -341,8 +374,6 @@ include 'includes/header.php';
                     <th class="sortable" data-col="cli_email">
                         Email <i class="fas fa-sort sort-icon"></i>
                     </th>
-                    <th>Contact No.</th>
-                    <th>Message</th>
                     <th class="sortable" data-col="status">
                         Status <i class="fas fa-sort sort-icon"></i>
                     </th>
@@ -351,7 +382,7 @@ include 'includes/header.php';
             </thead>
             <tbody id="tableBody">
                 <tr>
-                    <td colspan="7" class="text-center py-5 text-muted">
+                    <td colspan="5" class="text-center py-5 text-muted">
                         <span class="spinner-border spinner-border-sm me-2"></span>Loading...
                     </td>
                 </tr>
@@ -364,6 +395,53 @@ include 'includes/header.php';
 <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap gap-2">
     <small class="text-muted" id="tableInfo"></small>
     <nav aria-label="Inquiries pages" id="tablePagination"></nav>
+</div>
+
+<!-- ── Message Modal ───────────────────────────── -->
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content border-0 shadow-lg">
+
+            <div class="modal-header msg-modal-header">
+                <div>
+                    <h5 class="modal-title mb-1" id="messageModalLabel">
+                        Message from <span id="modalSenderName" class="fw-bold"></span>
+                    </h5>
+                    <span id="modalStatusBadge"></span>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body px-4 py-3">
+                <!-- Meta info -->
+                <div class="msg-meta mb-3">
+                    <div class="msg-meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="modalDate"></span>
+                    </div>
+                    <div class="msg-meta-item">
+                        <i class="fas fa-envelope"></i>
+                        <span id="modalEmail"></span>
+                    </div>
+                    <div class="msg-meta-item">
+                        <i class="fas fa-phone"></i>
+                        <span id="modalPhone"></span>
+                    </div>
+                </div>
+
+                <!-- Message body -->
+                <div class="msg-body">
+                    <p id="modalMessageBody" class="mb-0"></p>
+                </div>
+            </div>
+
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-secondary btn-sm px-4"
+                        data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <?php include 'includes/footer.php'; ?>

@@ -571,6 +571,55 @@ th.sortable:hover .sort-icon { color: #4361ee; }
     #content { padding: 16px; }
 }
 
+/* ── Unread row highlight ── */
+tr.row-unread td { background: rgba(67, 97, 238, 0.03); }
+
+/* ── Read Message button ── */
+.btn-read-msg {
+    background: rgba(67, 97, 238, 0.10);
+    color: #4361ee;
+}
+
+/* ── Message Modal ── */
+.msg-modal-header {
+    border-bottom: 1px solid #eaecf2;
+    padding: 20px 24px 16px;
+}
+
+.msg-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.msg-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: #5a6a7e;
+}
+
+.msg-meta-item i {
+    width: 16px;
+    text-align: center;
+    color: #9ba7b8;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.msg-body {
+    background: #f8f9fc;
+    border: 1px solid #eaecf2;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 /* ── Login page ── */
 body.login-page {
     background: linear-gradient(135deg, #1a1d2e 0%, #2d3561 100%);
