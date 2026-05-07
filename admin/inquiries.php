@@ -49,19 +49,20 @@ function statusBadge(status) {
 }
 
 function actionButtons(id, status) {
+    var s    = status || 'unread'; // treat null/empty as unread
     var btns = '';
 
-    if (status === 'unread') {
+    if (s === 'unread') {
         btns += '<button class="btn-action btn-read-msg" onclick="updateStatus(' + id + ',\'read\')">'
               + '<i class="fas fa-envelope-open-text me-1"></i>Read</button> ';
     }
 
-    if (status === 'read') {
+    if (s === 'read') {
         btns += '<button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
               + '<i class="fas fa-envelope me-1"></i>Mark Unread</button> ';
     }
 
-    if (status !== 'hidden') {
+    if (s !== 'hidden') {
         btns += '<button class="btn-action btn-hide" onclick="confirmHide(' + id + ')">'
               + '<i class="fas fa-eye-slash me-1"></i>Hide</button>';
     } else {
@@ -91,8 +92,9 @@ function renderRows(rows) {
     var html = '';
     for (var i = 0; i < rows.length; i++) {
         var row  = rows[i];
-        var bold = row.status === 'unread' ? ' fw-semibold' : '';
-        html += '<tr class="' + (row.status === 'unread' ? 'row-unread' : '') + '">';
+        var s    = row.status || 'unread';
+        var bold = s === 'unread' ? ' fw-semibold' : '';
+        html += '<tr class="' + (s === 'unread' ? 'row-unread' : '') + '">';
         html += '<td class="ps-4">'
               + '<span class="' + bold + '">' + escHtml(formatDate(row.date_time)) + '</span><br>'
               + '<small class="text-muted">' + escHtml(formatTime(row.date_time)) + '</small></td>';
