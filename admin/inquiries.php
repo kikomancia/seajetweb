@@ -4,7 +4,9 @@ $activePage = 'inquiries';
 require 'includes/auth.php';
 require 'includes/db.php';
 
-$unreadCount = mysqli_fetch_assoc(mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_messages WHERE status = 'unread'"))['c'];
+$_res        = mysqli_query($connect, "SELECT COUNT(*) AS c FROM sj_messages WHERE status = 'unread'");
+$unreadCount = $_res ? (int)mysqli_fetch_assoc($_res)['c'] : 0;
+unset($_res);
 mysqli_close($connect);
 
 $extraScripts = <<<'HTML'
@@ -18,7 +20,6 @@ var sortCol       = 'date_time';
 var sortAsc       = false;
 var searchQuery   = '';
 var currentFilter = 'all';
-var msgModal = null;   // single Bootstrap modal instance
 
 // ── Helpers ───────────────────────────────────────
 function escHtml(str) {
@@ -89,7 +90,7 @@ function openMessage(id) {
     document.getElementById('modalPhone').textContent       = row.cli_num || '—';
     document.getElementById('modalMessageBody').textContent = row.cli_message;
 
-    msgModal.show();
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('messageModal')).show();
 }
 
 // ── Tab counts ────────────────────────────────────
@@ -275,9 +276,6 @@ function confirmHide(id) {
 // ── Single DOMContentLoaded ───────────────────────
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Create modal instance ONCE and reuse it
-    msgModal = new bootstrap.Modal(document.getElementById('messageModal'));
-
     // Filter tabs
     document.querySelectorAll('.filter-tab').forEach(function(tab) {
         tab.addEventListener('click', function() { loadInquiries(tab.dataset.filter); });
@@ -367,7 +365,7 @@ include 'includes/header.php';
                         Date <i class="fas fa-sort sort-icon"></i>
                     </th>
                     <th class="sortable" data-col="cli_name">
-                        Name <i class="fas fa-sort sort-icon"></i>
+                        From <i class="fas fa-sort sort-icon"></i>
                     </th>
                     <th class="sortable" data-col="cli_email">
                         Email <i class="fas fa-sort sort-icon"></i>
