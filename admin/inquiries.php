@@ -20,6 +20,7 @@ var sortCol       = 'date_time';
 var sortAsc       = false;
 var searchQuery   = '';
 var currentFilter = 'all';
+var needsReload   = false;
 
 // ── Helpers ───────────────────────────────────────
 function escHtml(str) {
@@ -53,7 +54,7 @@ function actionButtons(id, status) {
 
     // Show Read for anything that is NOT already 'read' or 'hidden' (covers null, empty, 'unread', unexpected values)
     if (status !== 'read' && status !== 'hidden') {
-        btns += '<button class="btn-action btn-read-msg" onclick="updateStatus(' + id + ',\'read\')">'
+        btns += '<button class="btn-action btn-read-msg" onclick="openMessage(' + id + ')">'
               + 'View Message</button>';
     }
 
@@ -71,6 +72,35 @@ function actionButtons(id, status) {
     }
 
     return btns;
+}
+
+// ── Open message modal ────────────────────────────
+function openMessage(id) {
+    var row = null;
+    for (var i = 0; i < allRows.length; i++) {
+        if (allRows[i].id == id) { row = allRows[i]; break; }
+    }
+    if (!row) return;
+
+    document.getElementById('modalSenderName').textContent  = row.cli_name  || '';
+    document.getElementById('modalDate').textContent        = formatDate(row.date_time) + ' ' + formatTime(row.date_time);
+    document.getElementById('modalEmail').textContent       = row.cli_email  || '';
+    document.getElementById('modalPhone').textContent       = row.cli_num    || '—';
+    document.getElementById('modalMessageBody').textContent = row.cli_message || '';
+    document.getElementById('modalStatusBadge').innerHTML   = statusBadge(row.status);
+
+    if (row.status !== 'read') {
+        needsReload = true;
+        $.post('php_files/update_inquiry_status.php', { id: id, status: 'read' }, function(res) {
+            if (res.statusCode === 200) {
+                for (var j = 0; j < allRows.length; j++) {
+                    if (allRows[j].id == id) { allRows[j].status = 'read'; break; }
+                }
+            }
+        }, 'json');
+    }
+
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('messageModal')).show();
 }
 
 // ── Tab counts ────────────────────────────────────
@@ -284,6 +314,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sort headers
     document.querySelectorAll('th.sortable').forEach(function(th) {
         th.addEventListener('click', function() { sortBy(th.dataset.col); });
+    });
+
+    // Reload table after modal closes (if a status was changed inside)
+    document.getElementById('messageModal').addEventListener('hidden.bs.modal', function() {
+        if (needsReload) {
+            needsReload = false;
+            loadInquiries(currentFilter);
+        }
     });
 
     updateSortIcons();
