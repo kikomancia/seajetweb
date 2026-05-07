@@ -342,9 +342,9 @@ include 'includes/header.php';
 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
 
     <div class="filter-tabs">
-        <!-- <button class="filter-tab active" data-filter="all">
+        <button class="filter-tab active" data-filter="all">
             All <span class="tab-badge" id="badge-all"></span>
-        </button> -->
+        </button>
         <button class="filter-tab" data-filter="unread">
             Unread <span class="tab-badge" id="badge-unread"></span>
         </button>
