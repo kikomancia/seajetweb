@@ -18,10 +18,8 @@ var sortCol       = 'date_time';
 var sortAsc       = false;
 var searchQuery   = '';
 var currentFilter = 'all';
-
-// Active message opened in modal
-var activeId     = null;
-var activeStatus = null;
+var activeRow     = null;   // row currently open in modal
+var msgModal      = null;   // single Bootstrap modal instance
 
 // ── Helpers ───────────────────────────────────────
 function escHtml(str) {
@@ -52,7 +50,7 @@ function statusBadge(status) {
 
 function actionButtons(id, status) {
     var btns = '<button class="btn-action btn-read-msg" onclick="openMessage(' + id + ')">'
-             + '<i class="fas fa-envelope-open-text me-1"></i>Read Message</button>';
+             + '<i class="fas fa-envelope-open-text me-1"></i>Read</button>';
 
     if (status === 'read') {
         btns += ' <button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
@@ -72,11 +70,13 @@ function actionButtons(id, status) {
 
 // ── Modal ─────────────────────────────────────────
 function openMessage(id) {
-    var row = allRows.find(function(r) { return r.id == id; });
+    var row = null;
+    for (var i = 0; i < allRows.length; i++) {
+        if (allRows[i].id == id) { row = allRows[i]; break; }
+    }
     if (!row) return;
 
-    activeId     = row.id;
-    activeStatus = row.status;
+    activeRow = row;
 
     document.getElementById('modalSenderName').textContent  = row.cli_name;
     document.getElementById('modalStatusBadge').innerHTML   = statusBadge(row.status);
@@ -85,20 +85,8 @@ function openMessage(id) {
     document.getElementById('modalPhone').textContent       = row.cli_num || '—';
     document.getElementById('modalMessageBody').textContent = row.cli_message;
 
-    new bootstrap.Modal(document.getElementById('messageModal')).show();
+    msgModal.show();
 }
-
-// Auto-mark as read when modal closes (only if was unread)
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('messageModal').addEventListener('hidden.bs.modal', function() {
-        if (activeId !== null && activeStatus === 'unread') {
-            $.post('php_files/update_inquiry_status.php', { id: activeId, status: 'read' }, function(res) {
-                if (res.statusCode === 200) loadInquiries(currentFilter);
-            }, 'json');
-        }
-        activeId = activeStatus = null;
-    });
-});
 
 // ── Tab counts ────────────────────────────────────
 function updateTabCounts(counts) {
@@ -113,7 +101,7 @@ function updateTabCounts(counts) {
 function renderRows(rows) {
     var tbody = document.getElementById('tableBody');
     if (!rows || !rows.length) {
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-5">No inquiries found.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted py-5">No inquiries found.</td></tr>';
         return;
     }
     var html = '';
@@ -126,7 +114,6 @@ function renderRows(rows) {
               + '<small class="text-muted">' + escHtml(formatTime(row.date_time)) + '</small></td>';
         html += '<td class="fw-medium' + bold + '">' + escHtml(row.cli_name) + '</td>';
         html += '<td class="text-muted">' + escHtml(row.cli_email) + '</td>';
-        html += '<td>' + statusBadge(row.status) + '</td>';
         html += '<td class="text-nowrap">' + actionButtons(row.id, row.status) + '</td>';
         html += '</tr>';
     }
@@ -240,7 +227,7 @@ function loadInquiries(filter) {
     document.getElementById('tableInfo').textContent     = '';
     document.getElementById('tablePagination').innerHTML = '';
     document.getElementById('tableBody').innerHTML =
-        '<tr><td colspan="5" class="text-center py-5 text-muted">'
+        '<tr><td colspan="4" class="text-center py-5 text-muted">'
         + '<span class="spinner-border spinner-border-sm me-2"></span>Loading...</td></tr>';
 
     $.get('php_files/fetch_inquiries.php', { filter: filter }, function(res) {
@@ -250,7 +237,7 @@ function loadInquiries(filter) {
         applySearchAndSort();
     }, 'json').fail(function() {
         document.getElementById('tableBody').innerHTML =
-            '<tr><td colspan="5" class="text-center text-danger py-5">'
+            '<tr><td colspan="4" class="text-center text-danger py-5">'
             + '<i class="fas fa-exclamation-circle me-2"></i>Failed to load. Please refresh.</td></tr>';
     });
 }
@@ -281,13 +268,31 @@ function confirmHide(id) {
     });
 }
 
-// ── Init ──────────────────────────────────────────
+// ── Single DOMContentLoaded ───────────────────────
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Create modal instance ONCE and reuse it
+    msgModal = new bootstrap.Modal(document.getElementById('messageModal'));
+
+    // Auto-mark as read when modal closes
+    document.getElementById('messageModal').addEventListener('hidden.bs.modal', function() {
+        if (activeRow && activeRow.status === 'unread') {
+            var id = activeRow.id;
+            activeRow = null;
+            $.post('php_files/update_inquiry_status.php', { id: id, status: 'read' }, function(res) {
+                if (res.statusCode === 200) loadInquiries(currentFilter);
+            }, 'json');
+        } else {
+            activeRow = null;
+        }
+    });
+
+    // Filter tabs
     document.querySelectorAll('.filter-tab').forEach(function(tab) {
         tab.addEventListener('click', function() { loadInquiries(tab.dataset.filter); });
     });
 
+    // Search (debounced)
     var searchTimer;
     document.getElementById('tableSearch').addEventListener('input', function() {
         clearTimeout(searchTimer);
@@ -299,12 +304,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 250);
     });
 
+    // Per-page
     document.getElementById('perPageSelect').addEventListener('change', function() {
         perPage     = parseInt(this.value, 10);
         currentPage = 1;
         applySearchAndSort();
     });
 
+    // Sort headers
     document.querySelectorAll('th.sortable').forEach(function(th) {
         th.addEventListener('click', function() { sortBy(th.dataset.col); });
     });
@@ -374,15 +381,12 @@ include 'includes/header.php';
                     <th class="sortable" data-col="cli_email">
                         Email <i class="fas fa-sort sort-icon"></i>
                     </th>
-                    <th class="sortable" data-col="status">
-                        Status <i class="fas fa-sort sort-icon"></i>
-                    </th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
                 <tr>
-                    <td colspan="5" class="text-center py-5 text-muted">
+                    <td colspan="4" class="text-center py-5 text-muted">
                         <span class="spinner-border spinner-border-sm me-2"></span>Loading...
                     </td>
                 </tr>
@@ -413,7 +417,6 @@ include 'includes/header.php';
             </div>
 
             <div class="modal-body px-4 py-3">
-                <!-- Meta info -->
                 <div class="msg-meta mb-3">
                     <div class="msg-meta-item">
                         <i class="fas fa-calendar-alt"></i>
@@ -428,8 +431,6 @@ include 'includes/header.php';
                         <span id="modalPhone"></span>
                     </div>
                 </div>
-
-                <!-- Message body -->
                 <div class="msg-body">
                     <p id="modalMessageBody" class="mb-0"></p>
                 </div>
