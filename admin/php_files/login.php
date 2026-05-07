@@ -1,16 +1,8 @@
 <?php
-ini_set('session.use_only_cookies', 1);
-ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_path', '/');
-
-if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-    ini_set('session.cookie_secure', 1);
-}
-
-session_start();
+require __DIR__ . '/../includes/session.php'; // starts session with consistent config
 header('Content-Type: application/json');
 
-require __DIR__ . '/../includes/db.php'; // provides $connect; dies on failure
+require __DIR__ . '/../includes/db.php';
 
 $email = trim($_POST['txtUname'] ?? '');
 $pass  = trim($_POST['txtPass']  ?? '');
@@ -47,6 +39,6 @@ $_SESSION['email']     = $row['email'];
 $_SESSION['user_id']   = $row['id'];
 $_SESSION['logged']    = true;
 
-session_write_close(); // flush session data to disk before response is sent
+session_write_close();
 
 echo json_encode(['statusCode' => 200]);
