@@ -18,8 +18,7 @@ var sortCol       = 'date_time';
 var sortAsc       = false;
 var searchQuery   = '';
 var currentFilter = 'all';
-var activeRow     = null;   // row currently open in modal
-var msgModal      = null;   // single Bootstrap modal instance
+var msgModal = null;   // single Bootstrap modal instance
 
 // ── Helpers ───────────────────────────────────────
 function escHtml(str) {
@@ -76,7 +75,12 @@ function openMessage(id) {
     }
     if (!row) return;
 
-    activeRow = row;
+    // Mark as read immediately when button is clicked
+    if (row.status === 'unread') {
+        $.post('php_files/update_inquiry_status.php', { id: id, status: 'read' }, function(res) {
+            if (res.statusCode === 200) loadInquiries(currentFilter);
+        }, 'json');
+    }
 
     document.getElementById('modalSenderName').textContent  = row.cli_name;
     document.getElementById('modalStatusBadge').innerHTML   = statusBadge(row.status);
@@ -273,19 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create modal instance ONCE and reuse it
     msgModal = new bootstrap.Modal(document.getElementById('messageModal'));
-
-    // Auto-mark as read when modal closes
-    document.getElementById('messageModal').addEventListener('hidden.bs.modal', function() {
-        if (activeRow && activeRow.status === 'unread') {
-            var id = activeRow.id;
-            activeRow = null;
-            $.post('php_files/update_inquiry_status.php', { id: id, status: 'read' }, function(res) {
-                if (res.statusCode === 200) loadInquiries(currentFilter);
-            }, 'json');
-        } else {
-            activeRow = null;
-        }
-    });
 
     // Filter tabs
     document.querySelectorAll('.filter-tab').forEach(function(tab) {
