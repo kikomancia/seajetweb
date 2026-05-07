@@ -54,7 +54,7 @@ function actionButtons(id, status) {
     // Show Read for anything that is NOT already 'read' or 'hidden' (covers null, empty, 'unread', unexpected values)
     if (status !== 'read' && status !== 'hidden') {
         btns += '<button class="btn-action btn-read-msg" onclick="updateStatus(' + id + ',\'read\')">'
-              + '<i class="fas fa-envelope-open-text me-1"></i>Read the message</button> ';
+              + 'View Message</button>';
     }
 
     if (status === 'read') {
