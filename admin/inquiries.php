@@ -52,11 +52,8 @@ function statusBadge(status) {
 function actionButtons(id, status) {
     var btns = '';
 
-    // Show Read for anything that is NOT already 'read' or 'hidden' (covers null, empty, 'unread', unexpected values)
-    if (status !== 'read' && status !== 'hidden') {
-        btns += '<button class="btn-action btn-read-msg" onclick="openMessage(' + id + ')">'
-              + 'View Message</button>';
-    }
+    btns += '<button class="btn-action btn-read-msg" onclick="openMessage(' + id + ')">'
+          + 'View Message</button>';
 
     if (status === 'read') {
         btns += '<button class="btn-action btn-mark-unread" onclick="updateStatus(' + id + ',\'unread\')">'
