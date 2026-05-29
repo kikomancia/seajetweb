@@ -136,6 +136,12 @@ document.querySelectorAll(".service-header").forEach((header) => {
 
 
 
+// Set time token when page loads (used by msg.php to detect instant/bot submissions)
+(function () {
+    var tokenField = document.getElementById('form_token');
+    if (tokenField) tokenField.value = Math.floor(Date.now() / 1000);
+})();
+
 // CUSTOM JS FOR CONTACT FORM VALIDATION
 $(document).on("click", "#btnSendMsg", function (e) {
     e.preventDefault(); // stop default form submit
@@ -180,6 +186,14 @@ $(document).on("click", "#btnSendMsg", function (e) {
                     icon: 'warning',
                     title: '<span style="color:#FF003C;">Oops!</span>',
                     text: 'Invalid email address!',
+                    footer: 'SeaJet International Inc.',
+                    showConfirmButton: true
+                });
+            } else if (dataResult.statusCode == 429) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Please wait',
+                    text: 'You have already submitted a message recently. Please try again in a few minutes.',
                     footer: 'SeaJet International Inc.',
                     showConfirmButton: true
                 });

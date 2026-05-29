@@ -120,6 +120,11 @@
                                     rows="4"></textarea>
                             </div>
 
+                            <!-- Honeypot: hidden from humans, bots fill this -->
+                            <input type="text" name="website" id="website" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
+                            <!-- Time token: set by JS on page load -->
+                            <input type="hidden" name="form_token" id="form_token" value="">
+
                             <div class="mb-4 text-end">
                                 <input type="button" value="Send Message" id="btnSendMsg" class="btn btn-primary btn-lg" />
                             </div>
