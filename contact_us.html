@@ -17,10 +17,7 @@
     <link rel="stylesheet" href="sj_components/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <!-- sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Google reCAPTCHA v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
@@ -122,13 +119,8 @@
                                 <textarea  class="form-control" id="txtMessage" name="txtMessage"
                                     rows="4" required></textarea>
                             </div>
-
-                            <!-- Honeypot: hidden from humans, bots fill this -->
                             <input type="text" name="website" id="website" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
-                            <!-- Time token: set by JS on page load -->
                             <input type="hidden" name="form_token" id="form_token" value="">
-
-                            <!-- Google reCAPTCHA v2: replace YOUR_RECAPTCHA_SITE_KEY with your actual Site Key -->
                             <div class="mb-4">
                                 <div class="g-recaptcha" data-sitekey="6LdnUAgtAAAAAM0clNQhJWTYy36OjBXZA07JhFTh"></div>
                             </div>
@@ -425,7 +417,6 @@
         </div>
     </footer>
 
-    <!-- reCAPTCHA client-side validation -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sendButton = document.getElementById("btnSendMsg");
