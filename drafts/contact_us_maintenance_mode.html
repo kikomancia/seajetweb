@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaJet | Contact Us Maintenance</title>
+    <link rel="icon" href="sj_components/images/general/sj_icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sj_components/style.css">
+
+    <style>
+        :root {
+            --sj-navy: #0d2440;
+            --sj-blue: #1d4d7a;
+            --sj-gold: #ffd34d;
+            --sj-cream: #f6f8fb;
+            --sj-text: #eaf2fb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: var(--sj-text);
+            background:
+                linear-gradient(135deg, rgba(8, 22, 40, 0.92), rgba(13, 36, 64, 0.86)),
+                url("sj_components/images/imgHme/hme_bg_image_01.webp") no-repeat center center / cover;
+        }
+
+        .maintenance-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+        }
+
+        .maintenance-card {
+            width: 100%;
+            max-width: 760px;
+            padding: 44px 36px;
+            border-radius: 28px;
+            background: rgba(8, 20, 35, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(10px);
+            animation: floatUp 0.9s ease;
+        }
+
+        .brand-logo {
+            height: 86px;
+            width: auto;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255, 211, 77, 0.14);
+            color: var(--sj-gold);
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .status-badge::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--sj-gold);
+            box-shadow: 0 0 0 6px rgba(255, 211, 77, 0.18);
+        }
+
+        h1 {
+            margin: 22px 0 18px;
+            font-size: clamp(2.3rem, 5vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .lead-text {
+            margin: 0 auto;
+            max-width: 600px;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: rgba(234, 242, 251, 0.88);
+        }
+
+        .security-note {
+            margin-top: 28px;
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--sj-cream);
+            text-align: left;
+        }
+
+        .security-note strong {
+            color: var(--sj-gold);
+        }
+
+        .action-row {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .btn-home {
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: none;
+            background: var(--sj-gold);
+            color: var(--sj-navy);
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(255, 211, 77, 0.22);
+        }
+
+        .btn-secondary-link {
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-note {
+            margin-top: 28px;
+            font-size: 0.95rem;
+            color: rgba(234, 242, 251, 0.72);
+        }
+
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .maintenance-card {
+                padding: 34px 22px;
+                border-radius: 22px;
+            }
+
+            .security-note {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <div>
+            <img src="sj_components/images/general/gen_loading.svg" width="120" alt="Loading...">
+        </div>
+    </div>
+
+    <main class="maintenance-page">
+        <section class="maintenance-card text-center">
+            <img src="sj_components/images/general/gen_off_seajetlogo.webp" alt="SeaJet Logo" class="brand-logo">
+
+            <div class="mt-4">
+                <span class="status-badge">Under Maintenance</span>
+            </div>
+
+            <h1>Contact Page Temporarily Unavailable</h1>
+
+            <p class="lead-text">
+                We are currently updating our security measures to serve you better. During this time,
+                the Contact Us page is temporarily offline while we complete important improvements.
+            </p>
+
+            <div class="security-note">
+                <strong>Security update in progress:</strong> We appreciate your patience while we enhance
+                protection for your inquiries and submitted information.
+            </div>
+
+            <div class="action-row">
+                <a href="index.html" class="btn-home">Back to Homepage</a>
+                <a href="services.html" class="btn-secondary-link">View Our Services</a>
+            </div>
+
+            <p class="footer-note">
+                Please check back soon. Sea-Jet International Forwarders, Inc.
+            </p>
+        </section>
+    </main>
+
+    <script src="sj_components/javsript.js"></script>
+</body>
+
+</html>
